@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Entity.DTOs;
+using Entity.Entities;
 using Entity.IUnitOfWork;
 using Entity.Services;
 using System;
@@ -18,6 +20,22 @@ namespace Services.Services
         {
             _uow = uow;
             _mapper = mapper;
+        }
+
+        public async Task<string> AddCommand(CommandDto commandDto)
+        {
+            try
+            {
+                var commandEntity = _mapper.Map<Command>(commandDto);
+                await _uow.GetRepository<Command>().Add(commandEntity);
+                await _uow.CommitAsync();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
         }
     }
 }
