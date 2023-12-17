@@ -8,7 +8,5 @@ namespace Entity.Services
 {
     public interface ICommandService
     {
-        Task<object> ExecuteAsync(object command);
-
     }
 }
