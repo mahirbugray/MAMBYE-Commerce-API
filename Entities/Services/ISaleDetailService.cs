@@ -8,7 +8,7 @@ namespace Entity.Services
 {
     public interface ISaleDetailService
     {
-        Task<IEnumerable<SaleDetailDto>> GetAllSaleDetail(int saleDetailId);
+        Task<List<SaleDetailDto>> GetAllSaleDetail(int saleId);
         Task<SaleDetailDto> GetSaleDetailById(int saleDetailId);
         Task<string> CreateSaleDetail(SaleDetailDto model);
     }

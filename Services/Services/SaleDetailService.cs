@@ -21,11 +21,11 @@ namespace Services.Services
             _uow = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<SaleDetailDto>> GetAllSaleDetail(int saleDetailId)
+        public async Task<List<SaleDetailDto>> GetAllSaleDetail(int saleId)
         {
             try
             {
-                var saleEntity = await _uow.GetRepository<SaleDetail>().GetAll(x => x.SaleId == saleDetailId);
+                var saleEntity = await _uow.GetRepository<SaleDetail>().GetAll(x => x.SaleId == saleId);
                 if (saleEntity == null)
                 {
                     return null;
@@ -55,9 +55,18 @@ namespace Services.Services
 
 
 
-        public Task<SaleDetailDto> GetSaleDetailById(int saleDetailId)
+        public async Task<SaleDetailDto> GetSaleDetailById(int saleDetailId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var saleDetail = await _uow.GetRepository<SaleDetail>().GetById(saleDetailId);
+                return _mapper.Map<SaleDetailDto>(saleDetail);
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
         }
     }
 }
