@@ -9,9 +9,9 @@ namespace Entity.Services
 {
     public interface ICouponService
     {
-        Task<IEnumerable<CouponDto>> GetAllCoupons();
+        Task<List<CouponDto>> GetAllCoupons();
         Task<CouponDto> GetCouponById(int id);
         Task<string> CreateCoupon(CouponDto couponDto);
-        string UpdateCoupon(CouponDto couponDto);
+        Task<string> UpdateCoupon(CouponDto couponDto);
     }
 }

@@ -22,10 +22,10 @@ namespace Services.Services
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CouponDto>> GetAllCoupons()
+        public async Task<List<CouponDto>> GetAllCoupons()
         {
             var coupons = await _uow.GetRepository<Coupon>().GetAllAsync();
-            return _mapper.Map<IEnumerable<CouponDto>>(coupons);
+            return _mapper.Map<List<CouponDto>>(coupons);
         }
 
         public async Task<CouponDto> GetCouponById(int id)
@@ -49,12 +49,23 @@ namespace Services.Services
             }
         }
 
-        public string UpdateCoupon(CouponDto couponDto)
+        public async Task<string> UpdateCoupon(CouponDto couponDto)
         {
-            var mapperCoupon = _mapper.Map<Coupon>(couponDto);
-            _uow.GetRepository<Coupon>().Update(mapperCoupon);
-            _uow.Commit();
-            return "OK";
+            try
+            {
+                var couponOld = await _uow.GetRepository<Coupon>().Get(x => x.Id == couponDto.Id);
+                couponOld.Discount = couponDto.Discount;
+                couponOld.Description = couponDto.Description ?? couponOld.Description;
+                couponOld.GivenDate = DateTime.Now;
+                _uow.GetRepository<Coupon>().Update(couponOld);
+                _uow.Commit();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
         }
     }
 }
