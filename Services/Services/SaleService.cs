@@ -21,10 +21,10 @@ namespace Services.Services
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<SaleDto>> GetAll()
+        public async Task<List<SaleDto>> GetAll()
         {
             var sales = await _unitOfWork.GetRepository<Sale>().GetAllAsync();
-            return _mapper.Map<IEnumerable<SaleDto>>(sales);
+            return _mapper.Map<List<SaleDto>>(sales);
         }
 
         public async Task<SaleDto> GetById(int id)
