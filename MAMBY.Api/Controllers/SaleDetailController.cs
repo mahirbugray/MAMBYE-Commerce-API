@@ -19,18 +19,30 @@ namespace MAMBY.Api.Controllers
         public async Task<IActionResult> GetAllSaleDetail(int saleId)
         {
             var saleDetails = await _saleDetailService.GetAllSaleDetail(saleId);
+            if (saleDetails == null)
+            {
+                return NotFound();
+            }
             return Ok(saleDetails);
         }
         [HttpGet("GetSaleDetailById")]
         public async Task<IActionResult> GetSaleDetailById(int saleDetailId)
         {
             var saleDetail = await _saleDetailService.GetSaleDetailById(saleDetailId);
+            if(saleDetail == null)
+            {
+                return NotFound();
+            }
             return Ok(saleDetail);
         }
         [HttpPost("CreateSaleDetail")]
         public async Task<IActionResult> CreateSaleDetail(SaleDetailDto saleDetailDto)
         {
             var saleDetail = await _saleDetailService.CreateSaleDetail(saleDetailDto);
+            if (saleDetail == null) 
+            { 
+                return NotFound(); 
+            }
             return Ok(saleDetail);
         }
     }

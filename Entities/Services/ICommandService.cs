@@ -10,5 +10,7 @@ namespace Entity.Services
     public interface ICommandService
     {
         Task<string> AddCommand(CommandDto commandDto);
+        Task<string> DeleteCommand(int id);
+        Task<string> UpdateCommand(CommandDto commandDto);
     }
 }
