@@ -19,25 +19,41 @@ namespace MAMBY.Api.Controllers
         public async Task<IActionResult> GetAllCoupons()
         {
             var coupons = await _couponService.GetAllCoupons();
+            if(coupons == null)
+            {
+                return NotFound();
+            }
             return Ok(coupons);
         }
         [HttpGet("GetCoupon")]
         public async Task<IActionResult> GetCoupon(int id)
         {
             var coupon = await _couponService.GetCouponById(id);
+            if (coupon == null)
+            {
+                return BadRequest();
+            }
             return Ok(coupon);
         }
         [HttpPost("CreateCoupon")]
         public async Task<IActionResult> CreateCoupon(CouponDto couponDto)
         {
             var coupon = await _couponService.CreateCoupon(couponDto);
+            if (coupon == null)
+            {
+                return BadRequest();
+            }
             return Ok(coupon);
         }
         [HttpPut("UpdateCoupon")]
         public async Task<IActionResult> UpdateCoupon(CouponDto couponDto)
         {
             var coupon = await _couponService.UpdateCoupon(couponDto);
-            return Ok(coupon);
+            if (coupon != null)
+            {
+                return Ok(coupon);
+            }
+            return BadRequest();
         }
     }
 }

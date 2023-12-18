@@ -19,25 +19,50 @@ namespace MAMBY.Api.Controllers
         public async Task<IActionResult> GetAllCategory()
         {
             var categories = await _categoryService.GetAllCategory();
+            if (categories == null)
+            {
+                return NotFound();
+            }
             return Ok(categories);
         }
 
         [HttpGet("DeleteCategory")]
         public IActionResult DeleteCategory(int id)
         {
-            _categoryService.DeleteCategory(id);
-            return Ok();
+            try
+            {
+                if(id == 0)
+                {
+                    return NotFound();
+                }
+                _categoryService.DeleteCategory(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+           
         }
         [HttpPost("CreateCategory")]
         public async Task<IActionResult> CreateCategory([FromBody] CategoryDto categoryDto)
         {
             var category = await _categoryService.CreateCategory(categoryDto);
+            if (category == null)
+            {
+                return NotFound();
+            }
             return Ok(category);
         }
         [HttpPut("UpdateCategory")]
         public async Task<IActionResult> UpdateCategory([FromBody] CategoryDto categoryDto)
         {
             var category = await _categoryService.UpdateCategory(categoryDto);
+            if(category == null)
+            {
+                return NotFound();
+            }
             return Ok(category);
         }
     }
