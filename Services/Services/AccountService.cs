@@ -68,6 +68,10 @@ namespace Services.Services
             {
 
             }
+            foreach (var errors in identity.Errors)
+            {
+                msg = errors.Description;
+            }
             return msg;
         }
 
