@@ -92,7 +92,7 @@ namespace Services.Services
                 var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
                 if (result.Succeeded)
                 {
-                    return "Ok";
+                    return "OK";
                 }
                 else
                 {
