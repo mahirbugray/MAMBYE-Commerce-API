@@ -13,7 +13,6 @@ namespace DataAccess.Identity.Model
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
-        public string ImageUrl { get; set; }
         public string Address {  get; set; }
     }
 }
