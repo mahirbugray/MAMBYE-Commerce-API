@@ -50,8 +50,16 @@ namespace MAMBY.Api.Controllers
         [HttpPost("PasswordResetControl")]
         public async Task<IActionResult> PasswordResetControl([FromBody] string username)
         {
-            string token = await _accountService.ResetPasswordControl(username);
-            return Ok(token);
+            if (username != null)
+            {
+                string token = await _accountService.ResetPasswordControl(username);
+                if (token == "Not Found")
+                {
+                    return NotFound();
+                }
+                return Ok(token);
+            }
+           return BadRequest();
         }
 
 		[HttpPost("PasswordReset")]
