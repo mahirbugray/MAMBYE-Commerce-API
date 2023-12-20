@@ -71,6 +71,19 @@ namespace Services.Services
             return msg;
         }
 
+        public async Task<string> ResetPasswordControl(string username)
+        {
+            string msg = string.Empty;
+            var user = await _userManager.FindByNameAsync(username);
+            if (user != null)
+            {
+                string token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                return token;
+            }
+            msg = "Not Found";
+            return msg;
+        }
+
         public async Task<string> ResetPassword(PasswordResetDto model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);

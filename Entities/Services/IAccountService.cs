@@ -13,7 +13,8 @@ namespace Entity.Services
         Task<UserDto> Login(LoginDto model);
         Task LogoutAsync();
         Task<string> ResetPassword(PasswordResetDto model);
-        //Task<PasswordResetDto> FindUser(PasswordResetDto model);
+        Task<string> ResetPasswordControl(string username);
+		//Task<PasswordResetDto> FindUser(PasswordResetDto model);
 
-    }
+	}
 }
