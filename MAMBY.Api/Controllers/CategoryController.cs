@@ -26,7 +26,7 @@ namespace MAMBY.Api.Controllers
             return Ok(categories);
         }
 
-        [HttpGet("DeleteCategory")]
+        [HttpDelete("DeleteCategory")]
         public IActionResult DeleteCategory(int id)
         {
             try
