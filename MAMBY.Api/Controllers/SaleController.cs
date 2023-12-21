@@ -36,7 +36,7 @@ namespace MAMBY.Api.Controllers
             }
             return Ok(sale);
         }
-        [HttpGet("DeleteSale")]
+        [HttpDelete("DeleteSale")]
         public IActionResult DeleteSale(int id)
         {
             try
