@@ -59,7 +59,7 @@ namespace Services.Services
         {
             try
             {
-                var products = await _uow.GetRepository<ProductDto>().GetAllAsync();
+                var products = await _uow.GetRepository<Product>().GetAllAsync();
                 return _mapper.Map<List<ProductDto>>(products);
             }
             catch (Exception)
