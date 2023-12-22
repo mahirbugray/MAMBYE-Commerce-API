@@ -22,10 +22,10 @@ namespace MAMBY.Api.Controllers
             var products = await _productService.GetAllProducts();
             return Ok(products);
         }
-        [HttpGet("GetProductById")]
-        public async Task<IActionResult> GetProductById(int productId)
+        [HttpGet("GetProductById/{id}")]
+        public async Task<IActionResult> GetProductById(int id)
         {
-            var product = await _productService.GetProductById(productId);
+            var product = await _productService.GetProductById(id);
             return Ok(product);
         }
         [HttpPost("AddProduct")]

@@ -44,7 +44,7 @@ namespace Services.Services
         {
             try
             {
-                _uow.GetRepository<ProductDto>().DeleteById(productId);
+                _uow.GetRepository<Product>().DeleteById(productId);
                 _uow.Commit();
 
                 return "Ok";
@@ -83,7 +83,7 @@ namespace Services.Services
         {
             try
             {
-                var product = await _uow.GetRepository<ProductDto>().GetById(productId);
+                var product = await _uow.GetRepository<Product>().GetById(productId);
                 return _mapper.Map<ProductDto>(product);
 
             }
