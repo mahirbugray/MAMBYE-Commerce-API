@@ -88,6 +88,7 @@ namespace Services.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
         }
     }
 }
