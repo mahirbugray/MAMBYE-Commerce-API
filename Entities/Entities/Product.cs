@@ -20,5 +20,9 @@ namespace Entity.Entities
         public string ContentImage4 { get; set; }
         public int Point { get; set; }
 
+        //Relation
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+
     }
 }

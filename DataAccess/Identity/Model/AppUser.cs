@@ -9,7 +9,6 @@ namespace DataAccess.Identity.Model
 {
     public class AppUser : IdentityUser<int>
     {
-        public int UserId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
