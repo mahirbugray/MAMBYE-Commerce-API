@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,5 +23,7 @@ namespace Entity.DTOs
         public string ContentImage3 { get; set; }
         public string ContentImage4 { get; set; }
         public int Point { get; set; }
-    }
+		public int CategoryId { get; set; }
+		public Category Category { get; set; }
+	}
 }

@@ -57,7 +57,17 @@ namespace MAMBY.Api.Controllers
             return NotFound();
         }
 
+        [HttpGet("GetProductsByCategory/{id}")]
+        public async Task<IActionResult> GetProductsByCategory(int id)
+        {
+            var products = await _productService.GetProductsByCategory(id);
+            if(products == null)
+            {
+                return NotFound();
+            }
+            return Ok(products);
+        }
 
 
-    }
+	}
 }

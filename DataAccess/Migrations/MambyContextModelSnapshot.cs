@@ -122,9 +122,6 @@ namespace DataAccess.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -308,7 +305,7 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CategoryId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("ContentImage")
@@ -359,6 +356,80 @@ namespace DataAccess.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 2,
+                            Brand = "DS Damat",
+                            CategoryId = 2,
+                            ContentImage = "/images/takımcontent1.webp",
+                            ContentImage2 = "/images/takımcontent2.webp",
+                            ContentImage3 = "/images/takımcontent3.webp",
+                            ContentImage4 = "/images/takımcontent4.webp",
+                            DateTime = new DateTime(2023, 12, 23, 20, 50, 23, 926, DateTimeKind.Local).AddTicks(5028),
+                            Description = "Slim Fit Siyah Düz Takim Elbise",
+                            IsDeleted = false,
+                            Name = "Erkek Takım Elbise",
+                            Point = 10,
+                            Price = 9999m,
+                            Stock = 120,
+                            ThumbnailImage = "/images/takımthubnail.webp"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Brand = "Asus ROG",
+                            CategoryId = 4,
+                            ContentImage = "/images/asuscontent1.jpeg",
+                            ContentImage2 = "/images/asuscontent2.jpeg",
+                            ContentImage3 = "/images/asuscontent3.jpeg",
+                            ContentImage4 = "/images/asuscontent4.jpeg",
+                            DateTime = new DateTime(2023, 12, 23, 20, 50, 23, 926, DateTimeKind.Local).AddTicks(5032),
+                            Description = "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar",
+                            IsDeleted = false,
+                            Name = "Oyuncu Bilgisayarı",
+                            Point = 10,
+                            Price = 74956m,
+                            Stock = 78,
+                            ThumbnailImage = "/images/asusthumbnail.jpeg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Brand = "Nike",
+                            CategoryId = 5,
+                            ContentImage = "/images/gscontent1.webp",
+                            ContentImage2 = "/images/gscontent2.webp",
+                            ContentImage3 = "/images/gscontent3.webp",
+                            ContentImage4 = "/images/gscontent4.webp",
+                            DateTime = new DateTime(2023, 12, 23, 20, 50, 23, 926, DateTimeKind.Local).AddTicks(5034),
+                            Description = "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836",
+                            IsDeleted = false,
+                            Name = "Galatasaray 23-24 Sezonu İç Saha Forma",
+                            Point = 10,
+                            Price = 1200m,
+                            Stock = 500,
+                            ThumbnailImage = "/images/gsthumbnail.webp"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Brand = "Armani",
+                            CategoryId = 9,
+                            ContentImage = "/images/armanicontent1.webp",
+                            ContentImage2 = "/images/armanicontent2.webp",
+                            ContentImage3 = "/images/armanicontent3.webp",
+                            ContentImage4 = "/images/armanicontent4.webp",
+                            DateTime = new DateTime(2023, 12, 23, 20, 50, 23, 926, DateTimeKind.Local).AddTicks(5037),
+                            Description = "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı. Yeni ARMANI CODE kokusunu yaratmak için Giorgio Armani, tüm çeşitliliğiyle günümüz erkeğinden ilham aldı. Erkekler daha özgün bir erkeklik ifade etmekte ve duygularıyla daha uyumlu olmakta özgürdür. Bu yeni kodlar, her zaman Giorgio Armani'nin vizyonu olan şeyi somutlaştırıyor: nüanslarla dolu hassas bir erkeklik vizyonu. Usta parfümcü Antoine Maisondieu, ARMANI CODE PARFUM'u yaratarak bu vizyonu aktarıyor. Doğal kökenli ve sürdürülebilir kaynaklardan gelen değerli içerikleri tercih eden olağanüstü ve çevre dostu bir koku. Üst notada, İtalya'daki Calabria'ya özgü bergamot, ışıltılı ve canlı bir tazelik getiriyor. Kalp notasında iris, asil ve zarif, aromatik ve çiçeksi bir imza yaratır. Alt notada tonka fasulyesi mutlak güçlü ve şehvetli bir iz ortaya koyuyor. Yeni ARMANI CODE PARFUM şişesi, modern bir lüks vizyonunu ifade ediyor. Yoğun siyah renkte, kare ve yuvarlak şekilli, şık bir cam tabana sahiptir. Giorgio Armani monogramını taşıyan manyetik kapak, şişeyi tek bir hareketle kapatır. Altındaki gümüş plaka ışığı yakalar ve sofistike bir kontrast sağlar. Giorgio Armani'nin sürdürülebilir kalkınma konusundaki süregelen taahhütlerine uygun olarak, eko tasarımlı ARMANI CODE PARFUM şişesi 150 ml'lik yeniden doldurma sayesinde her boyutta yeniden doldurulabilir.",
+                            IsDeleted = false,
+                            Name = "Erkek Parfüm",
+                            Point = 10,
+                            Price = 5990m,
+                            Stock = 300,
+                            ThumbnailImage = "/images/armanithumbnail.webp"
+                        });
                 });
 
             modelBuilder.Entity("Entity.Entities.ProductFeature", b =>
@@ -580,9 +651,13 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entity.Entities.Product", b =>
                 {
-                    b.HasOne("Entity.Entities.Category", null)
+                    b.HasOne("Entity.Entities.Category", "Category")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId");
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Entity.Entities.ProductFeature", b =>

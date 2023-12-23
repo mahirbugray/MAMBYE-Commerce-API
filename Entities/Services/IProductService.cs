@@ -17,5 +17,6 @@ namespace Entity.Services
         Task<List<ProductDto>> GetListAFilter();
         Task<ProductDto> GetProductByFilter();
         Task<List<ProductDto>> GetAllProducts();
+        Task<List<ProductDto>> GetProductsByCategory(int categoryId);
     }
 }
