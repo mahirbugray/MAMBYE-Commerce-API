@@ -84,7 +84,6 @@ namespace Services.Services
 			try
 			{
 				var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category);
-				product.Category.Products = null;
 				return _mapper.Map<ProductDto>(product);
 
 			}
@@ -115,11 +114,10 @@ namespace Services.Services
 			try
 			{
 				var products = await _uow.GetRepository<Product>().GetAll(x => x.CategoryId == categoryId, null, x => x.Category);
-				return _mapper.Map<List<ProductDto>>(products);
+                return _mapper.Map<List<ProductDto>>(products);
 			}
 			catch (Exception ex)
 			{
-
 				return null;
 			}
 		}
