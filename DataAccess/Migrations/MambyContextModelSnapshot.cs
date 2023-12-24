@@ -227,6 +227,56 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 2,
+                            CategoryName = "Giyim",
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(63),
+                            Description = "Erkek - Kadın - Çocuk kıyafet.",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryName = "Elektronik",
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(65),
+                            Description = "Teknolojik araçlar.",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryName = "Spor & Outdoor",
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(67),
+                            Description = "Spor ve dış giyim malzemeleri.",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryName = "Ayakkabı",
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(69),
+                            Description = "Erkek - Kadın - Çocuk ayakkabı.",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryName = "Kozmetik",
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(70),
+                            Description = "Makyaj ve kişisel bakım malzemeleri.",
+                            IsDeleted = false
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoryName = "Ev & Yaşam",
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(72),
+                            Description = "Ev ve yaşam için gerekli genel malzemeler.",
+                            IsDeleted = false
+                        });
                 });
 
             modelBuilder.Entity("Entity.Entities.Command", b =>
@@ -360,6 +410,24 @@ namespace DataAccess.Migrations
                     b.HasData(
                         new
                         {
+                            Id = 1,
+                            Brand = "NIKE",
+                            CategoryId = 7,
+                            ContentImage = "/images/content1.webp",
+                            ContentImage2 = "/images/content2.webp",
+                            ContentImage3 = "/images/content3.webp",
+                            ContentImage4 = "/images/thumbnail.webp",
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9750),
+                            Description = "Erkek Ayakkabısı",
+                            IsDeleted = false,
+                            Name = "Air-Force",
+                            Point = 10,
+                            Price = 2500m,
+                            Stock = 50,
+                            ThumbnailImage = "/images/images.jpeg"
+                        },
+                        new
+                        {
                             Id = 2,
                             Brand = "DS Damat",
                             CategoryId = 2,
@@ -367,7 +435,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/takımcontent2.webp",
                             ContentImage3 = "/images/takımcontent3.webp",
                             ContentImage4 = "/images/takımcontent4.webp",
-                            DateTime = new DateTime(2023, 12, 23, 20, 50, 23, 926, DateTimeKind.Local).AddTicks(5028),
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9755),
                             Description = "Slim Fit Siyah Düz Takim Elbise",
                             IsDeleted = false,
                             Name = "Erkek Takım Elbise",
@@ -385,7 +453,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/asuscontent2.jpeg",
                             ContentImage3 = "/images/asuscontent3.jpeg",
                             ContentImage4 = "/images/asuscontent4.jpeg",
-                            DateTime = new DateTime(2023, 12, 23, 20, 50, 23, 926, DateTimeKind.Local).AddTicks(5032),
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9761),
                             Description = "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar",
                             IsDeleted = false,
                             Name = "Oyuncu Bilgisayarı",
@@ -403,7 +471,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/gscontent2.webp",
                             ContentImage3 = "/images/gscontent3.webp",
                             ContentImage4 = "/images/gscontent4.webp",
-                            DateTime = new DateTime(2023, 12, 23, 20, 50, 23, 926, DateTimeKind.Local).AddTicks(5034),
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9764),
                             Description = "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836",
                             IsDeleted = false,
                             Name = "Galatasaray 23-24 Sezonu İç Saha Forma",
@@ -421,7 +489,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/armanicontent2.webp",
                             ContentImage3 = "/images/armanicontent3.webp",
                             ContentImage4 = "/images/armanicontent4.webp",
-                            DateTime = new DateTime(2023, 12, 23, 20, 50, 23, 926, DateTimeKind.Local).AddTicks(5037),
+                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9767),
                             Description = "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı. Yeni ARMANI CODE kokusunu yaratmak için Giorgio Armani, tüm çeşitliliğiyle günümüz erkeğinden ilham aldı. Erkekler daha özgün bir erkeklik ifade etmekte ve duygularıyla daha uyumlu olmakta özgürdür. Bu yeni kodlar, her zaman Giorgio Armani'nin vizyonu olan şeyi somutlaştırıyor: nüanslarla dolu hassas bir erkeklik vizyonu. Usta parfümcü Antoine Maisondieu, ARMANI CODE PARFUM'u yaratarak bu vizyonu aktarıyor. Doğal kökenli ve sürdürülebilir kaynaklardan gelen değerli içerikleri tercih eden olağanüstü ve çevre dostu bir koku. Üst notada, İtalya'daki Calabria'ya özgü bergamot, ışıltılı ve canlı bir tazelik getiriyor. Kalp notasında iris, asil ve zarif, aromatik ve çiçeksi bir imza yaratır. Alt notada tonka fasulyesi mutlak güçlü ve şehvetli bir iz ortaya koyuyor. Yeni ARMANI CODE PARFUM şişesi, modern bir lüks vizyonunu ifade ediyor. Yoğun siyah renkte, kare ve yuvarlak şekilli, şık bir cam tabana sahiptir. Giorgio Armani monogramını taşıyan manyetik kapak, şişeyi tek bir hareketle kapatır. Altındaki gümüş plaka ışığı yakalar ve sofistike bir kontrast sağlar. Giorgio Armani'nin sürdürülebilir kalkınma konusundaki süregelen taahhütlerine uygun olarak, eko tasarımlı ARMANI CODE PARFUM şişesi 150 ml'lik yeniden doldurma sayesinde her boyutta yeniden doldurulabilir.",
                             IsDeleted = false,
                             Name = "Erkek Parfüm",

@@ -37,13 +37,13 @@ namespace DataAccess.Contexts
                 );
 
             modelBuilder.Entity<Category>().HasData(
-                new Category { Id = 2, CategoryName = "Giyim", Description= "Erkek - Kadın - Çocuk kıyafet.", DateTime=DateTime.Now, IsDeleted = false },
-                new Category { Id = 4, CategoryName = "Elektronik", Description= "Teknolojik araçlar.", DateTime=DateTime.Now, IsDeleted = false },
-                new Category { Id = 5, CategoryName = "Spor & Outdoor", Description= "Spor ve dış giyim malzemeleri.", DateTime=DateTime.Now, IsDeleted = false },
-                new Category { Id = 7, CategoryName = "Ayakkabı", Description= "Erkek - Kadın - Çocuk ayakkabı.", DateTime=DateTime.Now, IsDeleted = false },
-                new Category { Id = 9, CategoryName = "Kozmetik", Description= "Makyaj ve kişisel bakım malzemeleri.", DateTime=DateTime.Now, IsDeleted = false },
-                new Category { Id = 11, CategoryName = "Ev & Yaşam", Description= "Ev ve yaşam için gerekli genel malzemeler.", DateTime=DateTime.Now, IsDeleted = false }
-                )
+                new Category { Id = 2, CategoryName = "Giyim", Description = "Erkek - Kadın - Çocuk kıyafet.", DateTime = DateTime.Now, IsDeleted = false },
+                new Category { Id = 4, CategoryName = "Elektronik", Description = "Teknolojik araçlar.", DateTime = DateTime.Now, IsDeleted = false },
+                new Category { Id = 5, CategoryName = "Spor & Outdoor", Description = "Spor ve dış giyim malzemeleri.", DateTime = DateTime.Now, IsDeleted = false },
+                new Category { Id = 7, CategoryName = "Ayakkabı", Description = "Erkek - Kadın - Çocuk ayakkabı.", DateTime = DateTime.Now, IsDeleted = false },
+                new Category { Id = 9, CategoryName = "Kozmetik", Description = "Makyaj ve kişisel bakım malzemeleri.", DateTime = DateTime.Now, IsDeleted = false },
+                new Category { Id = 11, CategoryName = "Ev & Yaşam", Description = "Ev ve yaşam için gerekli genel malzemeler.", DateTime = DateTime.Now, IsDeleted = false }
+                );
 
             base.OnModelCreating(modelBuilder);
         }
