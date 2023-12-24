@@ -16,6 +16,7 @@ namespace MAMBY.Api.Controllers
         {
             _cardService = cardService;
         }
+        
         [HttpPost("CreateCart")]
         public async Task<IActionResult> CreateCart([FromBody] CardDto model)
         {
@@ -26,5 +27,6 @@ namespace MAMBY.Api.Controllers
             }
             return BadRequest();
         }
+
     }
 }
