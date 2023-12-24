@@ -13,7 +13,7 @@ namespace Entity.DTOs
         public DateTime DateTime { get; set; } = DateTime.Now;
         public bool IsDeleted { get; set; }
         public int Quantity { get; set; }
-        public int TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
         public int Price { get; set; }
         public int ProductId { get; set; }
         public int CardId { get; set; }

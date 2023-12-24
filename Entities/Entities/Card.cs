@@ -8,7 +8,7 @@ namespace Entity.Entities
 {
     public class Card : BaseEntity
     {
-        public int TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
         public int UserId { get; set; }
 
         //Relation
