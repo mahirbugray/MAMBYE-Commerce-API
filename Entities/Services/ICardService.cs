@@ -10,8 +10,8 @@ namespace Entity.Services
     public interface ICardService
     {
         Task<int> CreateCart(CardDto cardDto);
-        Task DeleteCart(int productId);
-        Task UpdateCart(int productId, int quantity);
+        Task<string> DeleteCart(int cardId);
+        Task<string> UpdateCart(CardDto cardDto);
         Task<List<CardDto>> GetAllCard();
         Task<List<CardLineDto>> GetCardLines();
 
