@@ -12,6 +12,7 @@ namespace Entity.Entities
         public int UserId { get; set; }
 
         //Relation
-        public List<CardLine> CardLines { get; set; }   
+        private List<CardLine> cardLines = new List<CardLine>();
+        public List<CardLine> CardLines => cardLines;
     }
 }
