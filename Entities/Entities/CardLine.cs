@@ -13,6 +13,7 @@ namespace Entity.Entities
         public int Price { get; set; }
         public int ProductId { get; set; }
         public int CardId { get; set; }
+        public string ProductName { get; set; }
 
         //Relation
         public Card Card { get; set; }
