@@ -15,7 +15,6 @@ namespace Services.Mapping
         public MappingProfile()
         {
             CreateMap<UserDto, AppUser>().ReverseMap();
-            CreateMap<Card, CardDto>().ReverseMap();
             CreateMap<CardLineDto, CardLine>().ReverseMap();
             CreateMap<CategoryDto, Category>().ReverseMap();
             CreateMap<CouponDto, Coupon>().ReverseMap();

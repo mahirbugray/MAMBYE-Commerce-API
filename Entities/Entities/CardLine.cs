@@ -9,7 +9,7 @@ namespace Entity.Entities
     public class CardLine : BaseEntity
     {
         public int Quantity { get; set; }
-        public int TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
         public int Price { get; set; }
         public int ProductId { get; set; }
         public int CardId { get; set; }
