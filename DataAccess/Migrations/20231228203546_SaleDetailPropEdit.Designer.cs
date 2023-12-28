@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(MambyContext))]
-    [Migration("20231223220112_Initial")]
-    partial class Initial
+    [Migration("20231228203546_SaleDetailPropEdit")]
+    partial class SaleDetailPropEdit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -156,8 +156,8 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -189,6 +189,10 @@ namespace DataAccess.Migrations
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -236,7 +240,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             CategoryName = "Giyim",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(63),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8550),
                             Description = "Erkek - Kadın - Çocuk kıyafet.",
                             IsDeleted = false
                         },
@@ -244,7 +248,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             CategoryName = "Elektronik",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(65),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8552),
                             Description = "Teknolojik araçlar.",
                             IsDeleted = false
                         },
@@ -252,7 +256,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             CategoryName = "Spor & Outdoor",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(67),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8553),
                             Description = "Spor ve dış giyim malzemeleri.",
                             IsDeleted = false
                         },
@@ -260,7 +264,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 7,
                             CategoryName = "Ayakkabı",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(69),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8555),
                             Description = "Erkek - Kadın - Çocuk ayakkabı.",
                             IsDeleted = false
                         },
@@ -268,7 +272,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 9,
                             CategoryName = "Kozmetik",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(70),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8556),
                             Description = "Makyaj ve kişisel bakım malzemeleri.",
                             IsDeleted = false
                         },
@@ -276,7 +280,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 11,
                             CategoryName = "Ev & Yaşam",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 491, DateTimeKind.Local).AddTicks(72),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8557),
                             Description = "Ev ve yaşam için gerekli genel malzemeler.",
                             IsDeleted = false
                         });
@@ -420,7 +424,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/content2.webp",
                             ContentImage3 = "/images/content3.webp",
                             ContentImage4 = "/images/thumbnail.webp",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9750),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8424),
                             Description = "Erkek Ayakkabısı",
                             IsDeleted = false,
                             Name = "Air-Force",
@@ -438,7 +442,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/takımcontent2.webp",
                             ContentImage3 = "/images/takımcontent3.webp",
                             ContentImage4 = "/images/takımcontent4.webp",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9755),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8427),
                             Description = "Slim Fit Siyah Düz Takim Elbise",
                             IsDeleted = false,
                             Name = "Erkek Takım Elbise",
@@ -456,7 +460,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/asuscontent2.jpeg",
                             ContentImage3 = "/images/asuscontent3.jpeg",
                             ContentImage4 = "/images/asuscontent4.jpeg",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9761),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8430),
                             Description = "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar",
                             IsDeleted = false,
                             Name = "Oyuncu Bilgisayarı",
@@ -474,7 +478,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/gscontent2.webp",
                             ContentImage3 = "/images/gscontent3.webp",
                             ContentImage4 = "/images/gscontent4.webp",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9764),
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8432),
                             Description = "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836",
                             IsDeleted = false,
                             Name = "Galatasaray 23-24 Sezonu İç Saha Forma",
@@ -492,8 +496,8 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/armanicontent2.webp",
                             ContentImage3 = "/images/armanicontent3.webp",
                             ContentImage4 = "/images/armanicontent4.webp",
-                            DateTime = new DateTime(2023, 12, 24, 1, 1, 12, 490, DateTimeKind.Local).AddTicks(9767),
-                            Description = "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı. Yeni ARMANI CODE kokusunu yaratmak için Giorgio Armani, tüm çeşitliliğiyle günümüz erkeğinden ilham aldı. Erkekler daha özgün bir erkeklik ifade etmekte ve duygularıyla daha uyumlu olmakta özgürdür. Bu yeni kodlar, her zaman Giorgio Armani'nin vizyonu olan şeyi somutlaştırıyor: nüanslarla dolu hassas bir erkeklik vizyonu. Usta parfümcü Antoine Maisondieu, ARMANI CODE PARFUM'u yaratarak bu vizyonu aktarıyor. Doğal kökenli ve sürdürülebilir kaynaklardan gelen değerli içerikleri tercih eden olağanüstü ve çevre dostu bir koku. Üst notada, İtalya'daki Calabria'ya özgü bergamot, ışıltılı ve canlı bir tazelik getiriyor. Kalp notasında iris, asil ve zarif, aromatik ve çiçeksi bir imza yaratır. Alt notada tonka fasulyesi mutlak güçlü ve şehvetli bir iz ortaya koyuyor. Yeni ARMANI CODE PARFUM şişesi, modern bir lüks vizyonunu ifade ediyor. Yoğun siyah renkte, kare ve yuvarlak şekilli, şık bir cam tabana sahiptir. Giorgio Armani monogramını taşıyan manyetik kapak, şişeyi tek bir hareketle kapatır. Altındaki gümüş plaka ışığı yakalar ve sofistike bir kontrast sağlar. Giorgio Armani'nin sürdürülebilir kalkınma konusundaki süregelen taahhütlerine uygun olarak, eko tasarımlı ARMANI CODE PARFUM şişesi 150 ml'lik yeniden doldurma sayesinde her boyutta yeniden doldurulabilir.",
+                            DateTime = new DateTime(2023, 12, 28, 23, 35, 46, 887, DateTimeKind.Local).AddTicks(8434),
+                            Description = "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.",
                             IsDeleted = false,
                             Name = "Erkek Parfüm",
                             Point = 10,
@@ -571,11 +575,35 @@ namespace DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("AptNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CardOwner")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Neighbourhood")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -588,6 +616,10 @@ namespace DataAccess.Migrations
 
                     b.Property<int>("SaleId")
                         .HasColumnType("int");
+
+                    b.Property<string>("ZipCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
