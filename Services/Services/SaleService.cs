@@ -32,22 +32,36 @@ namespace Services.Services
             var sale = await _unitOfWork.GetRepository<Sale>().GetById(id);
             return _mapper.Map<SaleDto>(sale);
         }
-        public async Task<string> Create(SaleDto model)
+        public async Task<string> Create(PaymentPostDto model)
         {
-            Sale newSale = new Sale()
-            {
-                
-            };
-            //veri tabanı kaydı olacak  newSale.id
-            SaleDetail detail = new SaleDetail() 
-            { 
-                
-            };
             try
             {
-                var saleEntity = _mapper.Map<Sale>(model);
-                await _unitOfWork.GetRepository<Sale>().Add(saleEntity);
+                Sale newSale = new Sale()
+                {
+                    AptNumber = model.aptNo,
+                    TotalPrice = model.totalPrice,
+                    City = model.city,
+                    Neighbourhood = model.neighbourhood,
+                    ZipCode = model.postCode,
+                    CardOwner = model.cardName,
+                    CardNumber = model.cardNo
+
+                };
+                await _unitOfWork.GetRepository<Sale>().Add(newSale);
                 await _unitOfWork.CommitAsync();
+                //veri tabanı kaydı olacak  newSale.id
+                foreach (var item in model.cardLines)
+                {
+                    SaleDetail detail = new SaleDetail()
+                    {
+                        SaleId = newSale.Id,
+                        ProductId = item.ProductId,
+                        Quantity = item.Quantity,
+                        Price = item.Price
+                    };
+                    await _unitOfWork.GetRepository<SaleDetail>().Add(detail);
+                    await _unitOfWork.CommitAsync();
+                }
                 return "OK";
             }
             catch (Exception ex)
