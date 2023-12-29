@@ -32,7 +32,7 @@ namespace Services.Services
 
             List<Claim> claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.UserData,"UserId"),   //talepte bulunan kullanıcının hangi rollere sahip olduğu bilgisi alınır admin yerine eklenerek liste oluşturulur
+                new Claim(ClaimTypes.UserData,id),   //talepte bulunan kullanıcının hangi rollere sahip olduğu bilgisi alınır admin yerine eklenerek liste oluşturulur
                 new Claim("sub", id)
             };
 

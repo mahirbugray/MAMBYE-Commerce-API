@@ -16,8 +16,7 @@ namespace DataAccess.Contexts
         {
             
         }
-        public DbSet<Card> Cards { get; set; }
-        public DbSet<CardLine> CardLines { get; set; }
+        
         public DbSet<Category> Categories { get; set; }
         public DbSet<Command> Commands  { get; set; }
         public DbSet<Coupon> Coupons { get; set; }

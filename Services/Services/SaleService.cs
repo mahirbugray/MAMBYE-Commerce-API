@@ -34,6 +34,15 @@ namespace Services.Services
         }
         public async Task<string> Create(SaleDto model)
         {
+            Sale newSale = new Sale()
+            {
+                
+            };
+            //veri tabanı kaydı olacak  newSale.id
+            SaleDetail detail = new SaleDetail() 
+            { 
+                
+            };
             try
             {
                 var saleEntity = _mapper.Map<Sale>(model);

@@ -11,6 +11,13 @@ namespace Entity.Entities
         public int TotalPrice { get; set; }
         public int TotalQuantity { get; set; }
         public int UserId { get; set;}
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string Neighbourhood { get; set; }
+        public string ZipCode { get; set; }
+        public string AptNumber { get; set; }
+        public string CardOwner { get; set; }
+        public string CardNumber { get; set; }
 
         //Relation
         public List<SaleDetail> SaleDetails { get; set; }

@@ -1,8 +1,10 @@
 ﻿using Entity.DTOs;
 using Entity.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Services;
+using System.Security.Claims;
 
 namespace MAMBY.Api.Controllers
 {
@@ -53,18 +55,23 @@ namespace MAMBY.Api.Controllers
 
                return BadRequest(ex.Message);
             }
-           
-          
         }
         [HttpPost("CreateSale")]
-        public async Task<IActionResult> CreateSale(SaleDto saleDto)
+        [Authorize]
+        public async Task<IActionResult> CreateSale([FromBody]PaymentPostDto model)
         {
-            var sale = await _saleService.Create(saleDto);
-            if (sale == null)
+            var userIdClaim = User.FindFirst(ClaimTypes.UserData);
+            if (userIdClaim != null)
             {
-                return NotFound();
+                int userId = Convert.ToInt32(userIdClaim.Value);
             }
-            return Ok(sale);
+                //var sale = await _saleService.Create(saleDto);
+                //if (sale == null)
+                //{
+                //    return NotFound();
+                //}
+                return Ok();
         }
+        
     }
 }
