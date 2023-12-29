@@ -46,7 +46,8 @@ namespace Services.Services
                     ZipCode = model.postCode,
                     CardOwner = model.cardName,
                     CardNumber = model.cardNo,
-                    UserId = userId
+                    UserId = userId,
+                    TotalQuantity = model.cardLines.Sum(x => x.Quantity)
                 };
                 await _unitOfWork.GetRepository<Sale>().Add(newSale);
                 await _unitOfWork.CommitAsync();
