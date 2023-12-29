@@ -85,5 +85,10 @@ namespace Services.Services
                 return ex.Message;
             }
         }
+
+        public Task<SaleDto> GetByUserId(int userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
