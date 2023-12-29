@@ -170,7 +170,9 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             CategoryName = "Giyim",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9663),
+
                             Description = "Erkek - Kadın - Çocuk kıyafet.",
                             IsDeleted = false
                         },
@@ -178,7 +180,9 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             CategoryName = "Elektronik",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9664),
+
                             Description = "Teknolojik araçlar.",
                             IsDeleted = false
                         },
@@ -186,7 +190,9 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             CategoryName = "Spor & Outdoor",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9666),
+
                             Description = "Spor ve dış giyim malzemeleri.",
                             IsDeleted = false
                         },
@@ -194,7 +200,9 @@ namespace DataAccess.Migrations
                         {
                             Id = 7,
                             CategoryName = "Ayakkabı",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9667),
+
                             Description = "Erkek - Kadın - Çocuk ayakkabı.",
                             IsDeleted = false
                         },
@@ -202,7 +210,9 @@ namespace DataAccess.Migrations
                         {
                             Id = 9,
                             CategoryName = "Kozmetik",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9668),
+
                             Description = "Makyaj ve kişisel bakım malzemeleri.",
                             IsDeleted = false
                         },
@@ -210,7 +220,9 @@ namespace DataAccess.Migrations
                         {
                             Id = 11,
                             CategoryName = "Ev & Yaşam",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9669),
+
                             Description = "Ev ve yaşam için gerekli genel malzemeler.",
                             IsDeleted = false
                         });
@@ -354,7 +366,9 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/content2.webp",
                             ContentImage3 = "/images/content3.webp",
                             ContentImage4 = "/images/thumbnail.webp",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9457),
+
                             Description = "Erkek Ayakkabısı",
                             IsDeleted = false,
                             Name = "Air-Force",
@@ -372,7 +386,9 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/takımcontent2.webp",
                             ContentImage3 = "/images/takımcontent3.webp",
                             ContentImage4 = "/images/takımcontent4.webp",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9461),
+
                             Description = "Slim Fit Siyah Düz Takim Elbise",
                             IsDeleted = false,
                             Name = "Erkek Takım Elbise",
@@ -390,7 +406,9 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/asuscontent2.jpeg",
                             ContentImage3 = "/images/asuscontent3.jpeg",
                             ContentImage4 = "/images/asuscontent4.jpeg",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9463),
+
                             Description = "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar",
                             IsDeleted = false,
                             Name = "Oyuncu Bilgisayarı",
@@ -408,7 +426,9 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/gscontent2.webp",
                             ContentImage3 = "/images/gscontent3.webp",
                             ContentImage4 = "/images/gscontent4.webp",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9466),
+
                             Description = "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836",
                             IsDeleted = false,
                             Name = "Galatasaray 23-24 Sezonu İç Saha Forma",
@@ -426,7 +446,9 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/armanicontent2.webp",
                             ContentImage3 = "/images/armanicontent3.webp",
                             ContentImage4 = "/images/armanicontent4.webp",
+
                             DateTime = new DateTime(2023, 12, 29, 4, 23, 5, 881, DateTimeKind.Local).AddTicks(9468),
+
                             Description = "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.",
                             IsDeleted = false,
                             Name = "Erkek Parfüm",
