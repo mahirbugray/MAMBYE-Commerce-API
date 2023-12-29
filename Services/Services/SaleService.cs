@@ -34,7 +34,7 @@ namespace Services.Services
         }
         public async Task<string> Create(PaymentPostDto model)
         {
-           
+
             try
             {
                 Sale newSale = new Sale()
@@ -49,6 +49,7 @@ namespace Services.Services
                 };
                 await _unitOfWork.GetRepository<Sale>().Add(newSale);
                 await _unitOfWork.CommitAsync();
+
                 foreach (var item in model.cardLines)
                 {
                     SaleDetail detail = new SaleDetail()
