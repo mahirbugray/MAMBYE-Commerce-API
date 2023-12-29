@@ -64,13 +64,14 @@ namespace MAMBY.Api.Controllers
             if (userIdClaim != null)
             {
                 int userId = Convert.ToInt32(userIdClaim.Value);
+                var sale = await _saleService.Create(model, userId);
+                if (sale == null)
+                {
+                    return NotFound();
+                }
+                return Ok();
             }
-            var sale = await _saleService.Create(model);
-            if (sale == null)
-            {
-                return NotFound();
-            }
-            return Ok();
+            return BadRequest();
         }
         
     }

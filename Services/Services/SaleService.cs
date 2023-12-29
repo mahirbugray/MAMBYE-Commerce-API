@@ -32,7 +32,7 @@ namespace Services.Services
             var sale = await _unitOfWork.GetRepository<Sale>().GetById(id);
             return _mapper.Map<SaleDto>(sale);
         }
-        public async Task<string> Create(PaymentPostDto model)
+        public async Task<string> Create(PaymentPostDto model, int userId)
         {
 
             try
@@ -45,7 +45,8 @@ namespace Services.Services
                     Neighbourhood = model.neighbourhood,
                     ZipCode = model.postCode,
                     CardOwner = model.cardName,
-                    CardNumber = model.cardNo
+                    CardNumber = model.cardNo,
+                    UserId = userId
                 };
                 await _unitOfWork.GetRepository<Sale>().Add(newSale);
                 await _unitOfWork.CommitAsync();
