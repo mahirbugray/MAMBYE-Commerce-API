@@ -73,6 +73,22 @@ namespace MAMBY.Api.Controllers
             }
             return BadRequest();
         }
-        
+        //[HttpGet]
+        //public async Task<IActionResult> ReceiptSale(int id)
+        //{
+        //    var userIdClaim = User.FindFirst(ClaimTypes.UserData);
+        //    if (userIdClaim == null)
+        //    {
+        //        return BadRequest("");
+        //    }
+        //    int userId = Convert.ToInt32(userIdClaim.Value);
+
+        //    var lastSale = await _saleService.GetById(id);
+        //    if (lastSale != null)
+        //    {
+        //        return Ok(lastSale);
+        //    }
+        //    return NotFound();
+        //}
     }
 }
