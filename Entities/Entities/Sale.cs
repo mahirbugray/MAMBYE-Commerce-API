@@ -8,7 +8,7 @@ namespace Entity.Entities
 {
     public class Sale : BaseEntity
     {
-        public int TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
         public int TotalQuantity { get; set; }
         public int UserId { get; set;}
         public string City { get; set; }
