@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class FinalEntities : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,22 +57,6 @@ namespace DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Cards",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cards", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,9 +117,16 @@ namespace DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TotalPrice = table.Column<int>(type: "int", nullable: false),
+                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TotalQuantity = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Neighbourhood = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ZipCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AptNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CardOwner = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -283,38 +274,6 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CardLines",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    TotalPrice = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    CardId = table.Column<int>(type: "int", nullable: false),
-                    ProductName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CardLines", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_CardLines_Cards_CardId",
-                        column: x => x.CardId,
-                        principalTable: "Cards",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CardLines_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProductFeatures",
                 columns: table => new
                 {
@@ -344,7 +303,7 @@ namespace DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     SaleId = table.Column<int>(type: "int", nullable: false),
                     DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -372,12 +331,12 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "CategoryName", "DateTime", "Description", "IsDeleted" },
                 values: new object[,]
                 {
-                    { 2, "Giyim", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4279), "Erkek - Kadın - Çocuk kıyafet.", false },
-                    { 4, "Elektronik", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4281), "Teknolojik araçlar.", false },
-                    { 5, "Spor & Outdoor", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4282), "Spor ve dış giyim malzemeleri.", false },
-                    { 7, "Ayakkabı", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4283), "Erkek - Kadın - Çocuk ayakkabı.", false },
-                    { 9, "Kozmetik", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4284), "Makyaj ve kişisel bakım malzemeleri.", false },
-                    { 11, "Ev & Yaşam", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4285), "Ev ve yaşam için gerekli genel malzemeler.", false }
+                    { 2, "Giyim", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1861), "Erkek - Kadın - Çocuk kıyafet.", false },
+                    { 4, "Elektronik", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1863), "Teknolojik araçlar.", false },
+                    { 5, "Spor & Outdoor", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1864), "Spor ve dış giyim malzemeleri.", false },
+                    { 7, "Ayakkabı", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1865), "Erkek - Kadın - Çocuk ayakkabı.", false },
+                    { 9, "Kozmetik", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1866), "Makyaj ve kişisel bakım malzemeleri.", false },
+                    { 11, "Ev & Yaşam", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1867), "Ev ve yaşam için gerekli genel malzemeler.", false }
                 });
 
             migrationBuilder.InsertData(
@@ -385,11 +344,11 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "Brand", "CategoryId", "ContentImage", "ContentImage2", "ContentImage3", "ContentImage4", "DateTime", "Description", "IsDeleted", "Name", "Point", "Price", "Stock", "ThumbnailImage" },
                 values: new object[,]
                 {
-                    { 1, "NIKE", 7, "/images/content1.webp", "/images/content2.webp", "/images/content3.webp", "/images/thumbnail.webp", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4122), "Erkek Ayakkabısı", false, "Air-Force", 10, 2500m, 50, "/images/images.jpeg" },
-                    { 2, "DS Damat", 2, "/images/takımcontent1.webp", "/images/takımcontent2.webp", "/images/takımcontent3.webp", "/images/takımcontent4.webp", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4126), "Slim Fit Siyah Düz Takim Elbise", false, "Erkek Takım Elbise", 10, 9999m, 120, "/images/takımthubnail.webp" },
-                    { 3, "Asus ROG", 4, "/images/asuscontent1.jpeg", "/images/asuscontent2.jpeg", "/images/asuscontent3.jpeg", "/images/asuscontent4.jpeg", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4129), "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar", false, "Oyuncu Bilgisayarı", 10, 74956m, 78, "/images/asusthumbnail.jpeg" },
-                    { 4, "Nike", 5, "/images/gscontent1.webp", "/images/gscontent2.webp", "/images/gscontent3.webp", "/images/gscontent4.webp", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4131), "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836", false, "Galatasaray 23-24 Sezonu İç Saha Forma", 10, 1200m, 500, "/images/gsthumbnail.webp" },
-                    { 5, "Armani", 9, "/images/armanicontent1.webp", "/images/armanicontent2.webp", "/images/armanicontent3.webp", "/images/armanicontent4.webp", new DateTime(2023, 12, 28, 21, 33, 16, 640, DateTimeKind.Local).AddTicks(4133), "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.", false, "Erkek Parfüm", 10, 5990m, 300, "/images/armanithumbnail.webp" }
+                    { 1, "NIKE", 7, "/images/content1.webp", "/images/content2.webp", "/images/content3.webp", "/images/thumbnail.webp", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1763), "Erkek Ayakkabısı", false, "Air-Force", 10, 2500m, 50, "/images/images.jpeg" },
+                    { 2, "DS Damat", 2, "/images/takımcontent1.webp", "/images/takımcontent2.webp", "/images/takımcontent3.webp", "/images/takımcontent4.webp", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1766), "Slim Fit Siyah Düz Takim Elbise", false, "Erkek Takım Elbise", 10, 9999m, 120, "/images/takımthubnail.webp" },
+                    { 3, "Asus ROG", 4, "/images/asuscontent1.jpeg", "/images/asuscontent2.jpeg", "/images/asuscontent3.jpeg", "/images/asuscontent4.jpeg", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1769), "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar", false, "Oyuncu Bilgisayarı", 10, 74956m, 78, "/images/asusthumbnail.jpeg" },
+                    { 4, "Nike", 5, "/images/gscontent1.webp", "/images/gscontent2.webp", "/images/gscontent3.webp", "/images/gscontent4.webp", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1771), "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836", false, "Galatasaray 23-24 Sezonu İç Saha Forma", 10, 1200m, 500, "/images/gsthumbnail.webp" },
+                    { 5, "Armani", 9, "/images/armanicontent1.webp", "/images/armanicontent2.webp", "/images/armanicontent3.webp", "/images/armanicontent4.webp", new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1773), "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.", false, "Erkek Parfüm", 10, 5990m, 300, "/images/armanithumbnail.webp" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -432,16 +391,6 @@ namespace DataAccess.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CardLines_CardId",
-                table: "CardLines",
-                column: "CardId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CardLines_ProductId",
-                table: "CardLines",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ProductFeatures_ProductId",
                 table: "ProductFeatures",
                 column: "ProductId");
@@ -481,9 +430,6 @@ namespace DataAccess.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "CardLines");
-
-            migrationBuilder.DropTable(
                 name: "Commands");
 
             migrationBuilder.DropTable(
@@ -500,9 +446,6 @@ namespace DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Cards");
 
             migrationBuilder.DropTable(
                 name: "Products");

@@ -139,73 +139,6 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("Entity.Entities.Card", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cards");
-                });
-
-            modelBuilder.Entity("Entity.Entities.CardLine", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CardId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CardId");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("CardLines");
-                });
-
             modelBuilder.Entity("Entity.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -237,7 +170,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             CategoryName = "Giyim",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(336),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1861),
                             Description = "Erkek - Kadın - Çocuk kıyafet.",
                             IsDeleted = false
                         },
@@ -245,7 +178,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             CategoryName = "Elektronik",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(337),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1863),
                             Description = "Teknolojik araçlar.",
                             IsDeleted = false
                         },
@@ -253,7 +186,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             CategoryName = "Spor & Outdoor",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(339),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1864),
                             Description = "Spor ve dış giyim malzemeleri.",
                             IsDeleted = false
                         },
@@ -261,7 +194,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 7,
                             CategoryName = "Ayakkabı",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(340),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1865),
                             Description = "Erkek - Kadın - Çocuk ayakkabı.",
                             IsDeleted = false
                         },
@@ -269,7 +202,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 9,
                             CategoryName = "Kozmetik",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(341),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1866),
                             Description = "Makyaj ve kişisel bakım malzemeleri.",
                             IsDeleted = false
                         },
@@ -277,7 +210,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 11,
                             CategoryName = "Ev & Yaşam",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(342),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1867),
                             Description = "Ev ve yaşam için gerekli genel malzemeler.",
                             IsDeleted = false
                         });
@@ -421,7 +354,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/content2.webp",
                             ContentImage3 = "/images/content3.webp",
                             ContentImage4 = "/images/thumbnail.webp",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(208),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1763),
                             Description = "Erkek Ayakkabısı",
                             IsDeleted = false,
                             Name = "Air-Force",
@@ -439,7 +372,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/takımcontent2.webp",
                             ContentImage3 = "/images/takımcontent3.webp",
                             ContentImage4 = "/images/takımcontent4.webp",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(211),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1766),
                             Description = "Slim Fit Siyah Düz Takim Elbise",
                             IsDeleted = false,
                             Name = "Erkek Takım Elbise",
@@ -457,7 +390,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/asuscontent2.jpeg",
                             ContentImage3 = "/images/asuscontent3.jpeg",
                             ContentImage4 = "/images/asuscontent4.jpeg",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(213),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1769),
                             Description = "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar",
                             IsDeleted = false,
                             Name = "Oyuncu Bilgisayarı",
@@ -475,7 +408,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/gscontent2.webp",
                             ContentImage3 = "/images/gscontent3.webp",
                             ContentImage4 = "/images/gscontent4.webp",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(216),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1771),
                             Description = "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836",
                             IsDeleted = false,
                             Name = "Galatasaray 23-24 Sezonu İç Saha Forma",
@@ -493,7 +426,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/armanicontent2.webp",
                             ContentImage3 = "/images/armanicontent3.webp",
                             ContentImage4 = "/images/armanicontent4.webp",
-                            DateTime = new DateTime(2023, 12, 29, 3, 9, 40, 907, DateTimeKind.Local).AddTicks(218),
+                            DateTime = new DateTime(2023, 12, 29, 4, 8, 17, 981, DateTimeKind.Local).AddTicks(1773),
                             Description = "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.",
                             IsDeleted = false,
                             Name = "Erkek Parfüm",
@@ -574,8 +507,8 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TotalPrice")
-                        .HasColumnType("int");
+                    b.Property<decimal>("TotalPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TotalQuantity")
                         .HasColumnType("int");
@@ -606,8 +539,8 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -730,25 +663,6 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Entity.Entities.CardLine", b =>
-                {
-                    b.HasOne("Entity.Entities.Card", "Card")
-                        .WithMany("CardLines")
-                        .HasForeignKey("CardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Entity.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Card");
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("Entity.Entities.Product", b =>
                 {
                     b.HasOne("Entity.Entities.Category", "Category")
@@ -839,11 +753,6 @@ namespace DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Entity.Entities.Card", b =>
-                {
-                    b.Navigation("CardLines");
                 });
 
             modelBuilder.Entity("Entity.Entities.Category", b =>

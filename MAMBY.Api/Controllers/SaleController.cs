@@ -65,12 +65,12 @@ namespace MAMBY.Api.Controllers
             {
                 int userId = Convert.ToInt32(userIdClaim.Value);
             }
-                //var sale = await _saleService.Create(saleDto);
-                //if (sale == null)
-                //{
-                //    return NotFound();
-                //}
-                return Ok();
+            var sale = await _saleService.Create(model);
+            if (sale == null)
+            {
+                return NotFound();
+            }
+            return Ok();
         }
         
     }
