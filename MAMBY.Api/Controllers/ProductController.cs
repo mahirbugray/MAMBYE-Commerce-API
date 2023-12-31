@@ -84,6 +84,5 @@ namespace MAMBY.Api.Controllers
             }
             return Ok(productList);
         }
-
 	}
 }
