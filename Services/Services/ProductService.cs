@@ -109,11 +109,11 @@ namespace Services.Services
             }
         }
 
-		public async Task<List<ProductDto>> GetProductBySearch(string search, int productId)
+		public async Task<List<ProductDto>> GetProductBySearch(string search)
 		{
             try
             {
-				var list = await _uow.GetRepository<Product>().GetAll(x => x.Id == productId && x.Name.ToLower().Contains(search.ToLower()) && x.IsDeleted == false);
+				var list = await _uow.GetRepository<Product>().GetAll(x => x.Name.ToLower().Contains(search.ToLower()) && x.IsDeleted == false);
 				return _mapper.Map<List<ProductDto>>(list.Where(x => x.IsDeleted == false));
 			}
             catch (Exception ex)
