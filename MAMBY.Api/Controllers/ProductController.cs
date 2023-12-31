@@ -67,7 +67,7 @@ namespace MAMBY.Api.Controllers
             }
             return Ok(products);
         }
-        [HttpGet("GetProductsSearch")]
+        [HttpGet("GetProductsSearch/{id}/{search}")]
         public async Task<IActionResult> GetProductsSearch(int? id, string? search)
         {
             var productList = await _productService.GetAllProducts();
