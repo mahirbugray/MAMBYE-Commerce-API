@@ -10,9 +10,7 @@ namespace Entity.Entities
     {
         public string Content { get; set; }
         
-        public int Point {  get; set; }
         public int UserId { get; set; }
         public int ProductId { get; set; } 
-
     }
 }

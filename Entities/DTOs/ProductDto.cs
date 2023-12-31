@@ -25,5 +25,6 @@ namespace Entity.DTOs
         public int Point { get; set; }
 		public int CategoryId { get; set; }
 		public Category Category { get; set; }
+        public List<CommandDto> Commands { get; set; }
 	}
 }

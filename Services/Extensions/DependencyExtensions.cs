@@ -90,6 +90,7 @@ namespace Services.Extensions
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ISaleService, SaleService>();
+            services.AddScoped<ICommandService, CommandService>();
         }
     }
 }

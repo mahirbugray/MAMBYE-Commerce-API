@@ -38,28 +38,12 @@ namespace Services.Services
             }
         }
 
-        public async Task<string> DeleteCommand(int id)
-        {
-            try
-            {
-                _uow.GetRepository<Command>().DeleteById(id);
-                await _uow.CommitAsync();
-                return "OK";
-            }
-            catch (Exception ex)
-            {
-
-                return ex.Message;
-            }
-        }
-
-        public async Task<string> UpdateCommand(CommandDto commandDto)
+		public async Task<string> UpdateCommand(CommandDto commandDto)
         {
             try
             {
                 var oldCommand = await _uow.GetRepository<Command>().Get(x => x.Id == commandDto.Id);
                 oldCommand.Content = commandDto.Content;
-                oldCommand.Point = commandDto.Point;
                 await _uow.CommitAsync();
                 return "OK";
             }
