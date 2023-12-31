@@ -67,7 +67,22 @@ namespace MAMBY.Api.Controllers
             }
             return Ok(products);
         }
-
-
+        [HttpGet("GetProductsSearch")]
+        public async Task<IActionResult> GetProductsSearch(int? id, string? search)
+        {
+            var productList = await _productService.GetAllProducts();
+            if(search != null)
+            {
+                productList = productList.Where(p => p.Name.ToLower().Contains(search.ToLower())).ToList();
+            }
+            else
+            {
+                if(id != null)
+                {
+                    productList = productList.Where(p => p.Id == id).ToList();
+                }
+            }
+            return Ok(productList);
+        }
 	}
 }
