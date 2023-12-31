@@ -23,6 +23,6 @@ namespace Entity.Entities
         //Relation
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-
+        public List<Command> Commands { get; set; }
     }
 }

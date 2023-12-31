@@ -83,7 +83,7 @@ namespace Services.Services
         {
             try
             {
-                var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category);
+                var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category, x => x.Commands);
                 return _mapper.Map<ProductDto>(product);
 
             }
