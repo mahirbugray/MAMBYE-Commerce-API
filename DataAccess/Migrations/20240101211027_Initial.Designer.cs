@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(MambyContext))]
-    [Migration("20231231190149_commandEdit")]
-    partial class commandEdit
+    [Migration("20240101211027_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -173,7 +173,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             CategoryName = "Giyim",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4347),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(52),
                             Description = "Erkek - Kadın - Çocuk kıyafet.",
                             IsDeleted = false
                         },
@@ -181,7 +181,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             CategoryName = "Elektronik",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4348),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(53),
                             Description = "Teknolojik araçlar.",
                             IsDeleted = false
                         },
@@ -189,7 +189,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             CategoryName = "Spor & Outdoor",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4349),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(54),
                             Description = "Spor ve dış giyim malzemeleri.",
                             IsDeleted = false
                         },
@@ -197,7 +197,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 7,
                             CategoryName = "Ayakkabı",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4350),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(56),
                             Description = "Erkek - Kadın - Çocuk ayakkabı.",
                             IsDeleted = false
                         },
@@ -205,7 +205,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 9,
                             CategoryName = "Kozmetik",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4351),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(57),
                             Description = "Makyaj ve kişisel bakım malzemeleri.",
                             IsDeleted = false
                         },
@@ -213,7 +213,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 11,
                             CategoryName = "Ev & Yaşam",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4352),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(58),
                             Description = "Ev ve yaşam için gerekli genel malzemeler.",
                             IsDeleted = false
                         });
@@ -352,29 +352,155 @@ namespace DataAccess.Migrations
                             Id = 1,
                             Brand = "NIKE",
                             CategoryId = 7,
-                            ContentImage = "/images/content1.webp",
-                            ContentImage2 = "/images/content2.webp",
-                            ContentImage3 = "/images/content3.webp",
-                            ContentImage4 = "/images/thumbnail.webp",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4241),
-                            Description = "Erkek Ayakkabısı",
+                            ContentImage = "/images/content2.webp",
+                            ContentImage2 = "/images/content3.webp",
+                            ContentImage3 = "/images/content0.webp",
+                            ContentImage4 = "/images/content1.webp",
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9903),
+                            Description = "Rahatlık ve moda odaklı tasarlanmış şık erkek ayakkabısı. Bu NIKE Air-Force ayakkabıları, günlük veya spor giyim için mükemmel bir seçenek sunar.",
                             IsDeleted = false,
-                            Name = "Air-Force",
+                            Name = "Air-Force Ayakkabı",
                             Point = 10,
                             Price = 2500m,
                             Stock = 50,
-                            ThumbnailImage = "/images/images.jpeg"
+                            ThumbnailImage = "/images/thumbnail.webp"
                         },
                         new
                         {
                             Id = 2,
+                            Brand = "NIKE",
+                            CategoryId = 7,
+                            ContentImage = "/images/NikeCortez1.webp",
+                            ContentImage2 = "/images/NikeCortez2.webp",
+                            ContentImage3 = "/images/NikeCortez3.webp",
+                            ContentImage4 = "/images/NikeCortez4.webp",
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9906),
+                            Description = "Stil ve işlevselliğe odaklanan NIKE tarafından tasarlanmış şık kadın ayakkabıları. Nike-Cortez koleksiyonu, günlük giyim için moda ve konforu mükemmel bir şekilde birleştiriyor.",
+                            IsDeleted = false,
+                            Name = "Nike-Cortez Ayakkabı",
+                            Point = 10,
+                            Price = 3499m,
+                            Stock = 50,
+                            ThumbnailImage = "/images/NikeCortez.webp"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Brand = "NIKE",
+                            CategoryId = 7,
+                            ContentImage = "/images/NikeCortez2.webp",
+                            ContentImage2 = "/images/NikeV2KRun3.webp",
+                            ContentImage3 = "/images/NikeV2KRun4.webp",
+                            ContentImage4 = "/images/NikeV2KRun1.webp",
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9909),
+                            Description = "NIKE, aktif bir yaşam tarzı için tasarlanmış kadın ayakkabısı olan V2 Run'u sunar. Bu rahat ve dayanıklı koşu ayakkabıları ile performans ve stilin tadını çıkarın.",
+                            IsDeleted = false,
+                            Name = "Nike V2 Run Ayakkabı",
+                            Point = 10,
+                            Price = 2999m,
+                            Stock = 50,
+                            ThumbnailImage = "/images/NikeV2KRun.webp"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Brand = "NIKE",
+                            CategoryId = 7,
+                            ContentImage = "/images/NikeAirMax90Futura2.webp",
+                            ContentImage2 = "/images/NikeAirMax90Futura3.webp",
+                            ContentImage3 = "/images/NikeAirMax90Futura4.webp",
+                            ContentImage4 = "/images/NikeAirMax90Futura5.webp",
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9911),
+                            Description = " Moda ve sporu bir araya getiren, kadınlar için ideal olan Nike AirMax 90 Futura. Bu ayakkabılar şık tasarımı ve gün boyu konforu ile öne çıkıyor.",
+                            IsDeleted = false,
+                            Name = "Nike AirMax 90 Futura Ayakkabı",
+                            Point = 10,
+                            Price = 1499m,
+                            Stock = 110,
+                            ThumbnailImage = "/images/NikeAirMax90Futura1.webp"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Brand = "NIKE",
+                            CategoryId = 7,
+                            ContentImage = "/images/NikeCourtVısıonLo2.webp",
+                            ContentImage2 = "/images/NikeCourtVısıonLo3.webp",
+                            ContentImage3 = "/images/NikeCourtVısıonLo4.webp",
+                            ContentImage4 = "/images/NikeCourtVısıonLo5.webp",
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9913),
+                            Description = "Stilin bir dokunuşuyla erkek spor ayakkabıları. Nike Court Vısıon Lo koleksiyonu, spor ve günlük kullanım için performans ile trend tasarımı mükemmel bir şekilde birleştiriyor.",
+                            IsDeleted = false,
+                            Name = "Nike Court Vısıon Lo Ayakkabı",
+                            Point = 10,
+                            Price = 4999m,
+                            Stock = 150,
+                            ThumbnailImage = "/images/NikeCourtVısıonLo1.webp"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Brand = "adidas",
+                            CategoryId = 7,
+                            ContentImage = "/images/stansmith1.webp",
+                            ContentImage2 = "/images/stansmith2.webp",
+                            ContentImage3 = "/images/stansmith3.webp",
+                            ContentImage4 = "/images/stansmith4.webp",
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9916),
+                            Description = "Klasik erkek ayakkabılarından olan adidas Stan Smith koleksiyonu, zamansız stili ve konforuyla bilinir. Bu ikonik sneaker'lar ile günlük görünümünüzü yükseltin.",
+                            IsDeleted = false,
+                            Name = "adidas Stan Smith Ayakkabı",
+                            Point = 10,
+                            Price = 1849m,
+                            Stock = 150,
+                            ThumbnailImage = "/images/stansmith.webp"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Brand = "adidas",
+                            CategoryId = 7,
+                            ContentImage = "/images/adidasniteball1.webp",
+                            ContentImage2 = "/images/adidasniteball2.webp",
+                            ContentImage3 = "/images/adidasniteball3.webp",
+                            ContentImage4 = "/images/adidasniteball4.webp",
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9918),
+                            Description = "adidas'ın tasarladığı cinsiyet ayrımı olmayan spor ayakkabıları, Niteball koleksiyonu, çok yönlülük ve performans için tasarlanmıştır. Bu ayakkabılar çeşitli spor ve aktiviteler için uygundur.",
+                            IsDeleted = false,
+                            Name = "adidas niteball unisex Ayakkabı",
+                            Point = 10,
+                            Price = 1849m,
+                            Stock = 150,
+                            ThumbnailImage = "/images/adidasniteball.webp"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Brand = "NewBalance",
+                            CategoryId = 7,
+                            ContentImage = "/images/NewBalance5301.webp",
+                            ContentImage2 = "/images/NewBalance5302.webp",
+                            ContentImage3 = "/images/NewBalance5305.webp",
+                            ContentImage4 = "/images/NewBalance5304.webp",
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9920),
+                            Description = "NewBalance530 erkek ayakkabıları ile stil sahibi bir şekilde doğayı keşfedin. Bu NewBalance sneaker'lar, sert dayanıklılık ve modern tasarımın mükemmel bir kombinasyonunu sunar, aktif yaşam tarzınız için.",
+                            IsDeleted = false,
+                            Name = "NewBalance530 Ayakkabı",
+                            Point = 10,
+                            Price = 3599m,
+                            Stock = 45,
+                            ThumbnailImage = "/images/NewBalance530.webp"
+                        },
+                        new
+                        {
+                            Id = 9,
                             Brand = "DS Damat",
                             CategoryId = 2,
                             ContentImage = "/images/takımcontent1.webp",
                             ContentImage2 = "/images/takımcontent2.webp",
                             ContentImage3 = "/images/takımcontent3.webp",
                             ContentImage4 = "/images/takımcontent4.webp",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4244),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9922),
                             Description = "Slim Fit Siyah Düz Takim Elbise",
                             IsDeleted = false,
                             Name = "Erkek Takım Elbise",
@@ -385,14 +511,14 @@ namespace DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            Id = 10,
                             Brand = "Asus ROG",
                             CategoryId = 4,
                             ContentImage = "/images/asuscontent1.jpeg",
                             ContentImage2 = "/images/asuscontent2.jpeg",
                             ContentImage3 = "/images/asuscontent3.jpeg",
                             ContentImage4 = "/images/asuscontent4.jpeg",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4246),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9924),
                             Description = "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar",
                             IsDeleted = false,
                             Name = "Oyuncu Bilgisayarı",
@@ -403,14 +529,14 @@ namespace DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 11,
                             Brand = "Nike",
                             CategoryId = 5,
                             ContentImage = "/images/gscontent1.webp",
                             ContentImage2 = "/images/gscontent2.webp",
                             ContentImage3 = "/images/gscontent3.webp",
                             ContentImage4 = "/images/gscontent4.webp",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4248),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9926),
                             Description = "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836",
                             IsDeleted = false,
                             Name = "Galatasaray 23-24 Sezonu İç Saha Forma",
@@ -421,14 +547,14 @@ namespace DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 12,
                             Brand = "Armani",
                             CategoryId = 9,
                             ContentImage = "/images/armanicontent1.webp",
                             ContentImage2 = "/images/armanicontent2.webp",
                             ContentImage3 = "/images/armanicontent3.webp",
                             ContentImage4 = "/images/armanicontent4.webp",
-                            DateTime = new DateTime(2023, 12, 31, 22, 1, 49, 693, DateTimeKind.Local).AddTicks(4250),
+                            DateTime = new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9929),
                             Description = "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.",
                             IsDeleted = false,
                             Name = "Erkek Parfüm",

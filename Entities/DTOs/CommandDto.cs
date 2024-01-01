@@ -16,5 +16,6 @@ namespace Entity.DTOs
 
         public int UserId { get; set; }
 		public int ProductId { get; set; }
+		public UserDto User { get; set; }
 	}
 }
