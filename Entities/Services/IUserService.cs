@@ -10,6 +10,6 @@ namespace Entity.Services
     public interface IUserService
     {
         Task<UserDto> GetByIdUser(int id);
-        Task<string> UpdateProfileInformation(UpdateUserDto model);
+        Task<UpdateUserDto> UpdateProfileInformation(UpdateUserDto model);
     }
 }
