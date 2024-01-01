@@ -1,7 +1,9 @@
-﻿using Entity.Services;
+﻿using Entity.DTOs;
+using Entity.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Services.Services;
 
 namespace MAMBY.Api.Controllers
 {
@@ -25,6 +27,16 @@ namespace MAMBY.Api.Controllers
                 return BadRequest();
             }
             return Ok(user);
+        }
+        [HttpPut("UpdateProfile")]
+        public async Task<IActionResult> UpdateProfileInformation([FromBody] UpdateUserDto userDto)
+        {
+            var user = await _userService.UpdateProfileInformation(userDto);
+            if (user == null)
+            {
+                return BadRequest();
+            }
+            return Ok(user);    
         }
     }
 }
