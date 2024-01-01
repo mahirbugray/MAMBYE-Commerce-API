@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DataAccess.Identity.Model;
 using Entity.DTOs;
 using Entity.Entities;
 using Entity.IUnitOfWork;
@@ -83,8 +84,18 @@ namespace Services.Services
         {
             try
             {
-                var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category, x => x.Commands);
-                return _mapper.Map<ProductDto>(product);
+                var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category, x=> x.Commands);
+                var mappedList = _mapper.Map<ProductDto>(product);
+                if(mappedList.Commands.Count()  > 0)
+                {
+                    foreach (var item in mappedList.Commands)
+                    {
+                        var user = await _uow.GetRepository<AppUser>().Get(x => x.Id == item.UserId);
+                        item.User = _mapper.Map<UserDto>(user);
+                    }
+                }
+                
+                return mappedList;
 
             }
             catch (Exception)

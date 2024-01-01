@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class Inital : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -73,24 +73,6 @@ namespace DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Commands",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Point = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Commands", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -273,6 +255,29 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Commands",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    DateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Commands", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Commands_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductFeatures",
                 columns: table => new
                 {
@@ -330,12 +335,12 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "CategoryName", "DateTime", "Description", "IsDeleted" },
                 values: new object[,]
                 {
-                    { 2, "Giyim", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6677), "Erkek - Kadın - Çocuk kıyafet.", false },
-                    { 4, "Elektronik", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6679), "Teknolojik araçlar.", false },
-                    { 5, "Spor & Outdoor", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6680), "Spor ve dış giyim malzemeleri.", false },
-                    { 7, "Ayakkabı", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6681), "Erkek - Kadın - Çocuk ayakkabı.", false },
-                    { 9, "Kozmetik", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6682), "Makyaj ve kişisel bakım malzemeleri.", false },
-                    { 11, "Ev & Yaşam", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6683), "Ev ve yaşam için gerekli genel malzemeler.", false }
+                    { 2, "Giyim", new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(52), "Erkek - Kadın - Çocuk kıyafet.", false },
+                    { 4, "Elektronik", new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(53), "Teknolojik araçlar.", false },
+                    { 5, "Spor & Outdoor", new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(54), "Spor ve dış giyim malzemeleri.", false },
+                    { 7, "Ayakkabı", new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(56), "Erkek - Kadın - Çocuk ayakkabı.", false },
+                    { 9, "Kozmetik", new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(57), "Makyaj ve kişisel bakım malzemeleri.", false },
+                    { 11, "Ev & Yaşam", new DateTime(2024, 1, 2, 0, 10, 27, 517, DateTimeKind.Local).AddTicks(58), "Ev ve yaşam için gerekli genel malzemeler.", false }
                 });
 
             migrationBuilder.InsertData(
@@ -343,11 +348,18 @@ namespace DataAccess.Migrations
                 columns: new[] { "Id", "Brand", "CategoryId", "ContentImage", "ContentImage2", "ContentImage3", "ContentImage4", "DateTime", "Description", "IsDeleted", "Name", "Point", "Price", "Stock", "ThumbnailImage" },
                 values: new object[,]
                 {
-                    { 1, "NIKE", 7, "/images/content1.webp", "/images/content2.webp", "/images/content3.webp", "/images/thumbnail.webp", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6556), "Erkek Ayakkabısı", false, "Air-Force", 10, 2500m, 50, "/images/images.jpeg" },
-                    { 2, "DS Damat", 2, "/images/takımcontent1.webp", "/images/takımcontent2.webp", "/images/takımcontent3.webp", "/images/takımcontent4.webp", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6560), "Slim Fit Siyah Düz Takim Elbise", false, "Erkek Takım Elbise", 10, 9999m, 120, "/images/takımthubnail.webp" },
-                    { 3, "Asus ROG", 4, "/images/asuscontent1.jpeg", "/images/asuscontent2.jpeg", "/images/asuscontent3.jpeg", "/images/asuscontent4.jpeg", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6562), "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar", false, "Oyuncu Bilgisayarı", 10, 74956m, 78, "/images/asusthumbnail.jpeg" },
-                    { 4, "Nike", 5, "/images/gscontent1.webp", "/images/gscontent2.webp", "/images/gscontent3.webp", "/images/gscontent4.webp", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6564), "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836", false, "Galatasaray 23-24 Sezonu İç Saha Forma", 10, 1200m, 500, "/images/gsthumbnail.webp" },
-                    { 5, "Armani", 9, "/images/armanicontent1.webp", "/images/armanicontent2.webp", "/images/armanicontent3.webp", "/images/armanicontent4.webp", new DateTime(2023, 12, 29, 22, 11, 23, 319, DateTimeKind.Local).AddTicks(6566), "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.", false, "Erkek Parfüm", 10, 5990m, 300, "/images/armanithumbnail.webp" }
+                    { 1, "NIKE", 7, "/images/content2.webp", "/images/content3.webp", "/images/content0.webp", "/images/content1.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9903), "Rahatlık ve moda odaklı tasarlanmış şık erkek ayakkabısı. Bu NIKE Air-Force ayakkabıları, günlük veya spor giyim için mükemmel bir seçenek sunar.", false, "Air-Force Ayakkabı", 10, 2500m, 50, "/images/thumbnail.webp" },
+                    { 2, "NIKE", 7, "/images/NikeCortez1.webp", "/images/NikeCortez2.webp", "/images/NikeCortez3.webp", "/images/NikeCortez4.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9906), "Stil ve işlevselliğe odaklanan NIKE tarafından tasarlanmış şık kadın ayakkabıları. Nike-Cortez koleksiyonu, günlük giyim için moda ve konforu mükemmel bir şekilde birleştiriyor.", false, "Nike-Cortez Ayakkabı", 10, 3499m, 50, "/images/NikeCortez.webp" },
+                    { 3, "NIKE", 7, "/images/NikeCortez2.webp", "/images/NikeV2KRun3.webp", "/images/NikeV2KRun4.webp", "/images/NikeV2KRun1.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9909), "NIKE, aktif bir yaşam tarzı için tasarlanmış kadın ayakkabısı olan V2 Run'u sunar. Bu rahat ve dayanıklı koşu ayakkabıları ile performans ve stilin tadını çıkarın.", false, "Nike V2 Run Ayakkabı", 10, 2999m, 50, "/images/NikeV2KRun.webp" },
+                    { 4, "NIKE", 7, "/images/NikeAirMax90Futura2.webp", "/images/NikeAirMax90Futura3.webp", "/images/NikeAirMax90Futura4.webp", "/images/NikeAirMax90Futura5.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9911), " Moda ve sporu bir araya getiren, kadınlar için ideal olan Nike AirMax 90 Futura. Bu ayakkabılar şık tasarımı ve gün boyu konforu ile öne çıkıyor.", false, "Nike AirMax 90 Futura Ayakkabı", 10, 1499m, 110, "/images/NikeAirMax90Futura1.webp" },
+                    { 5, "NIKE", 7, "/images/NikeCourtVısıonLo2.webp", "/images/NikeCourtVısıonLo3.webp", "/images/NikeCourtVısıonLo4.webp", "/images/NikeCourtVısıonLo5.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9913), "Stilin bir dokunuşuyla erkek spor ayakkabıları. Nike Court Vısıon Lo koleksiyonu, spor ve günlük kullanım için performans ile trend tasarımı mükemmel bir şekilde birleştiriyor.", false, "Nike Court Vısıon Lo Ayakkabı", 10, 4999m, 150, "/images/NikeCourtVısıonLo1.webp" },
+                    { 6, "adidas", 7, "/images/stansmith1.webp", "/images/stansmith2.webp", "/images/stansmith3.webp", "/images/stansmith4.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9916), "Klasik erkek ayakkabılarından olan adidas Stan Smith koleksiyonu, zamansız stili ve konforuyla bilinir. Bu ikonik sneaker'lar ile günlük görünümünüzü yükseltin.", false, "adidas Stan Smith Ayakkabı", 10, 1849m, 150, "/images/stansmith.webp" },
+                    { 7, "adidas", 7, "/images/adidasniteball1.webp", "/images/adidasniteball2.webp", "/images/adidasniteball3.webp", "/images/adidasniteball4.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9918), "adidas'ın tasarladığı cinsiyet ayrımı olmayan spor ayakkabıları, Niteball koleksiyonu, çok yönlülük ve performans için tasarlanmıştır. Bu ayakkabılar çeşitli spor ve aktiviteler için uygundur.", false, "adidas niteball unisex Ayakkabı", 10, 1849m, 150, "/images/adidasniteball.webp" },
+                    { 8, "NewBalance", 7, "/images/NewBalance5301.webp", "/images/NewBalance5302.webp", "/images/NewBalance5305.webp", "/images/NewBalance5304.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9920), "NewBalance530 erkek ayakkabıları ile stil sahibi bir şekilde doğayı keşfedin. Bu NewBalance sneaker'lar, sert dayanıklılık ve modern tasarımın mükemmel bir kombinasyonunu sunar, aktif yaşam tarzınız için.", false, "NewBalance530 Ayakkabı", 10, 3599m, 45, "/images/NewBalance530.webp" },
+                    { 9, "DS Damat", 2, "/images/takımcontent1.webp", "/images/takımcontent2.webp", "/images/takımcontent3.webp", "/images/takımcontent4.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9922), "Slim Fit Siyah Düz Takim Elbise", false, "Erkek Takım Elbise", 10, 9999m, 120, "/images/takımthubnail.webp" },
+                    { 10, "Asus ROG", 4, "/images/asuscontent1.jpeg", "/images/asuscontent2.jpeg", "/images/asuscontent3.jpeg", "/images/asuscontent4.jpeg", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9924), "Asus ROG Strix G18 G814JI-N6079 Intel Core i9 13980HX 16GB 1TB SSD RTX4070 Freedos 18 WQXGA 240Hz Taşınabilir Bilgisayar", false, "Oyuncu Bilgisayarı", 10, 74956m, 78, "/images/asusthumbnail.jpeg" },
+                    { 11, "Nike", 5, "/images/gscontent1.webp", "/images/gscontent2.webp", "/images/gscontent3.webp", "/images/gscontent4.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9926), "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836", false, "Galatasaray 23-24 Sezonu İç Saha Forma", 10, 1200m, 500, "/images/gsthumbnail.webp" },
+                    { 12, "Armani", 9, "/images/armanicontent1.webp", "/images/armanicontent2.webp", "/images/armanicontent3.webp", "/images/armanicontent4.webp", new DateTime(2024, 1, 2, 0, 10, 27, 516, DateTimeKind.Local).AddTicks(9929), "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.", false, "Erkek Parfüm", 10, 5990m, 300, "/images/armanithumbnail.webp" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -388,6 +400,11 @@ namespace DataAccess.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Commands_ProductId",
+                table: "Commands",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductFeatures_ProductId",
