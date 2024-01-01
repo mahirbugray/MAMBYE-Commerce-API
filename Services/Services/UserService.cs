@@ -29,18 +29,26 @@ namespace Services.Services
             return _mapper.Map<UserDto>(user);
         }
 
-        public async Task<string> UpdateProfileInformation(UpdateUserDto model)
+        public async Task<UpdateUserDto> UpdateProfileInformation(UpdateUserDto model)
         {
             try
             {
                 var user = await _uow.GetRepository<AppUser>().Get(x => x.Email == model.Email);
-               _mapper.Map<UpdateUserDto>(user);
-                return "OK";
+                user.Address = model.Address ?? user.Address;
+                user.PhoneNumber = model.PhoneNumber ?? null;
+                user.Email = model.Email ?? user.Email;
+                user.BirthDate = model.BirthDate != null ? model.BirthDate : user.BirthDate;
+                user.Name = model.Name ?? user.Name;
+                user.Surname = model.Surname ?? user.Surname;
+                user.UserName = model.UserName ?? user.UserName;
+                _uow.GetRepository<AppUser>().Update(user);
+                _uow.Commit();
+                return _mapper.Map<UpdateUserDto>(user);
             }
             catch (Exception ex)
             {
 
-                return ex.Message;
+                return null;
             }
         }
     }
