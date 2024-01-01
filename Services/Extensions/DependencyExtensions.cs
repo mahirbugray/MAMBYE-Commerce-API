@@ -91,6 +91,7 @@ namespace Services.Extensions
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ISaleService, SaleService>();
             services.AddScoped<ICommandService, CommandService>();
+            services.AddScoped<IRoleService, RoleService>();
         }
     }
 }
