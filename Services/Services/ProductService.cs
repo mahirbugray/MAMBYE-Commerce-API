@@ -56,6 +56,46 @@ namespace Services.Services
             }
         }
 
+        public async Task<List<ProductDto>> GetAllWithCategory()
+        {
+            try
+            {
+                var products = await _uow.GetRepository<Product>().GetAll(null, null, x => x.Category);
+                List<Product> products1 = products.Select(x => new Product
+                {
+                    Brand = x.Brand,
+                    Name = x.Name,
+                    Commands = x.Commands,
+                    ContentImage = x.ContentImage,
+                    ContentImage2 = x.ContentImage2,
+                    ContentImage3 = x.ContentImage3,
+                    ContentImage4 = x.ContentImage4,
+                    DateTime = x.DateTime,
+                    Description = x.Description,
+                    Id = x.Id,
+                    IsDeleted = x.IsDeleted,
+                    Point = x.Point,
+                    Price = x.Price,
+                    Stock = x.Stock,
+                    ThumbnailImage = x.ThumbnailImage,
+                    CategoryId = x.CategoryId,
+                    Category = new Category
+                    {
+                        Id = x.Category.Id,
+                        Description = x.Category.Description,
+                        CategoryName = x.Category.CategoryName,
+                        DateTime = x.Category.DateTime,
+                        IsDeleted = x.Category.IsDeleted
+                    }
+                }).ToList();
+                return _mapper.Map<List<ProductDto>>(products1);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public async Task<List<ProductDto>> GetAllProducts()
         {
             try
@@ -67,6 +107,19 @@ namespace Services.Services
             {
 
                 return null;
+            }
+        }
+
+        public async Task<int> GetCountByCategory(int id)
+        {
+            try
+            {
+                var list = await _uow.GetRepository<Product>().GetAll(x => x.CategoryId == id, null, x => x.Category);
+                return list.Count();
+            }
+            catch (Exception)
+            {
+                return 0;
             }
         }
 
@@ -84,9 +137,9 @@ namespace Services.Services
         {
             try
             {
-                var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category, x=> x.Commands);
+                var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category, x => x.Commands);
                 var mappedList = _mapper.Map<ProductDto>(product);
-                if(mappedList.Commands.Count()  > 0)
+                if (mappedList.Commands.Count() > 0)
                 {
                     foreach (var item in mappedList.Commands)
                     {
@@ -94,7 +147,7 @@ namespace Services.Services
                         item.User = _mapper.Map<UserDto>(user);
                     }
                 }
-                
+
                 return mappedList;
 
             }
@@ -120,20 +173,20 @@ namespace Services.Services
             }
         }
 
-		public async Task<List<ProductDto>> GetProductBySearch(string search)
-		{
+        public async Task<List<ProductDto>> GetProductBySearch(string search)
+        {
             try
             {
-				var list = await _uow.GetRepository<Product>().GetAll(x => x.Name.ToLower().Contains(search.ToLower()) && x.IsDeleted == false);
-				return _mapper.Map<List<ProductDto>>(list.Where(x => x.IsDeleted == false));
-			}
+                var list = await _uow.GetRepository<Product>().GetAll(x => x.Name.ToLower().Contains(search.ToLower()) && x.IsDeleted == false);
+                return _mapper.Map<List<ProductDto>>(list.Where(x => x.IsDeleted == false));
+            }
             catch (Exception ex)
             {
                 return null;
             }
-		}
+        }
 
-		public async Task<List<ProductDto>> GetProductsByCategory(int categoryId)
+        public async Task<List<ProductDto>> GetProductsByCategory(int categoryId)
         {
             try
             {
