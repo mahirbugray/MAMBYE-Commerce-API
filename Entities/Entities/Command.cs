@@ -12,5 +12,6 @@ namespace Entity.Entities
         public string Content { get; set; }
         public int UserId { get; set; }
         public int ProductId { get; set; }
+        public Product Products { get; set; }
 	}
 }

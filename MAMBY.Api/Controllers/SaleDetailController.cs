@@ -45,5 +45,16 @@ namespace MAMBY.Api.Controllers
             }
             return Ok(saleDetail);
         }
+
+        [HttpGet("GetSaleDetail/{id}")]
+        public async Task<IActionResult> GetSaleDetail(int id)
+        { 
+            var list = await _saleDetailService.GetAllSale(id);
+            if (list == null)
+            {
+                return BadRequest();
+            }
+            return Ok(list);
+        }
     }
 }

@@ -35,5 +35,16 @@ namespace MAMBY.Api.Controllers
             }
             return BadRequest(command);
         }
+
+        [HttpGet("GetAllCommands")]
+        public async Task<IActionResult> GetAllCommands()
+        {
+            var commands = await _commandService.GetAllByFilter(null, null, x => x.Products);
+            if (commands == null)
+            {
+                return NotFound();
+            }
+            return Ok(commands);
+        }
     }
 }
