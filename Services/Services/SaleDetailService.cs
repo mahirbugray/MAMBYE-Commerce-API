@@ -6,6 +6,7 @@ using Entity.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,6 +54,18 @@ namespace Services.Services
             }
         }
 
+        public async Task<List<SaleDetailDto>> GetAllSale(int id)
+        {
+            try
+            {
+                var list = await _uow.GetRepository<SaleDetail>().GetAll(x => x.SaleId == id, x => x.OrderBy(x => x.DateTime), x => x.Products);
+                return _mapper.Map<List<SaleDetailDto>>(list);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
 
         public async Task<SaleDetailDto> GetSaleDetailById(int saleDetailId)

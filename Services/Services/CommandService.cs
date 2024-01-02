@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DataAccess.Identity.Model;
 using Entity.DTOs;
 using Entity.Entities;
 using Entity.IUnitOfWork;
@@ -6,8 +7,10 @@ using Entity.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Services.Services
 {
@@ -52,5 +55,28 @@ namespace Services.Services
                 return ex.Message;
             }
         }
+
+        public async Task<List<CommandDto>> GetAllByFilter(Expression<Func<Command, bool>> filter = null, Func<IQueryable<Command>, IOrderedQueryable<Command>> orderby = null, params Expression<Func<Command, object>>[] includes)
+        {
+            try
+            {
+                var list = await _uow.GetRepository<Command>().GetAll(filter, orderby, includes);
+                var mappedList = _mapper.Map<List<CommandDto>>(list);
+                if (mappedList.Count() > 0)
+                {
+                    foreach (var item in mappedList)
+                    {
+                        var user = await _uow.GetRepository<AppUser>().Get(x => x.Id == item.UserId);
+                        item.User = _mapper.Map<UserDto>(user);
+                    }
+                }
+                return mappedList;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
     }
 }
