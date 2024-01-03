@@ -17,6 +17,13 @@ namespace Services.Services
     {
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
+
+        public ProductFeatureService(IUnitOfWork uow, IMapper mapper)
+        {
+            _uow = uow;
+            _mapper = mapper;
+        }
+
         public async Task<string> Add(ProductFeatureDto featureDto)
         {
             try
@@ -31,12 +38,12 @@ namespace Services.Services
             }
         }
 
-        public async Task<List<ProductFeatureDto>> GetAll(int productId)
+        public async Task<List<ProductFeatureDto>> GetAllProductFeature(int categoryId)
         {
             try
             {
-                var list = await _uow.GetRepository<ProductFeature>().GetAll(x => x.ProductId == productId, null, x => x.Product);
-                list = list.Where(x => x.ProductId == list.Min(x => x.ProductId)).ToList();
+                var list = await _uow.GetRepository<ProductFeature>().GetAll(x => x.Product.CategoryId == categoryId, null, x => x.Product);
+                list.Where(x => x.ProductId == list.Min(x => x.ProductId));
                 return _mapper.Map<List<ProductFeatureDto>>(list);
             }
             catch (Exception)
