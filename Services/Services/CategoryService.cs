@@ -15,11 +15,13 @@ namespace Services.Services
     {
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
+        private readonly IProductService _productService;
 
-        public CategoryService(IUnitOfWork uow, IMapper mapper)
+        public CategoryService(IUnitOfWork uow, IMapper mapper, IProductService productService)
         {
             _uow = uow;
             _mapper = mapper;
+            _productService = productService;
         }
 
         public async Task<string> CreateCategory(CategoryDto categoryDto)
@@ -55,8 +57,20 @@ namespace Services.Services
 
         public async Task<List<CategoryDto>> GetAllCategory()
         {
-            var list = await _uow.GetRepository<Category>().GetAllAsync();
-            return _mapper.Map<List<CategoryDto>>(list);
+            try
+            {
+                var list = await _uow.GetRepository<Category>().GetAllAsync();
+                var mappedList = _mapper.Map<List<CategoryDto>>(list);
+                foreach (var item in mappedList)
+                {
+                    item.ProductCount = await _productService.GetCountByCategory(item.Id);
+                }
+                return mappedList;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public async Task<CategoryDto> UpdateCategory(CategoryDto categoryDto)

@@ -11,5 +11,6 @@ namespace Entity.Services
     {
         Task<UserDto> GetByIdUser(int id);
         Task<UpdateUserDto> UpdateProfileInformation(UpdateUserDto model);
+        Task<List<UserDto>> GetAllUsers();
     }
 }

@@ -4,6 +4,8 @@ using Entity.DTOs;
 using Entity.Entities;
 using Entity.IUnitOfWork;
 using Entity.Services;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,17 +18,39 @@ namespace Services.Services
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _uow;
+        private readonly UserManager<AppUser> _userManager;
 
-        public UserService(IMapper mapper, IUnitOfWork uow)
+        public UserService(IMapper mapper, IUnitOfWork uow, UserManager<AppUser> userManager)
         {
             _mapper = mapper;
             _uow = uow;
+            _userManager = userManager;
+        }
+
+        public async Task<List<UserDto>> GetAllUsers()
+        {
+            try
+            {
+                var list = await _userManager.Users.ToListAsync();
+                return _mapper.Map<List<UserDto>>(list);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public async Task<UserDto> GetByIdUser(int id)
         {
-            var user = await _uow.GetRepository<AppUser>().Get(x => x.Id == id);
-            return _mapper.Map<UserDto>(user);
+            try
+            {
+                var user = await _uow.GetRepository<AppUser>().Get(x => x.Id == id);
+                return _mapper.Map<UserDto>(user);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public async Task<UpdateUserDto> UpdateProfileInformation(UpdateUserDto model)

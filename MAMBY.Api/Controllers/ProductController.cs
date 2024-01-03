@@ -78,5 +78,16 @@ namespace MAMBY.Api.Controllers
 			}
             return BadRequest();
 		}
-	}
+
+        [HttpGet("GetAllFilter")]
+        public async Task<IActionResult> GetAllFilter()
+        {
+            var products = await _productService.GetAllWithCategory();
+            if (products == null)
+            {
+                return BadRequest();
+            }
+            return Ok(products);
+        }
+    }
 }
