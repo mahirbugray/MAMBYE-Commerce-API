@@ -19,7 +19,7 @@ namespace MAMBY.Api.Controllers
         [HttpGet("GetAllProductFeature/{id}")]
         public async Task<IActionResult> GetAllProductFeature(int id)
         {
-            var productFeature = await _productFeatureService.GetAll(id);
+            var productFeature = await _productFeatureService.GetAllProductFeature(id);
             if (productFeature == null)
             {
                 return NotFound();

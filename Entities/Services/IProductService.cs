@@ -9,7 +9,7 @@ namespace Entity.Services
 {
     public interface IProductService
     {
-        Task<string> AddProduct(ProductDto productDto);
+        Task<int> AddProduct(ProductDto productDto);
         Task<ProductDto> UpdateProduct(ProductDto productDto);
         string DeleteProduct(int productId);
         Task<ProductDto> GetProductById(int productId);

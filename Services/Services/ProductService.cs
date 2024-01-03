@@ -23,7 +23,7 @@ namespace Services.Services
             _mapper = mapper;
         }
 
-        public async Task<string> AddProduct(ProductDto productDto)
+        public async Task<int> AddProduct(ProductDto productDto)
         {
             try
             {
@@ -31,13 +31,13 @@ namespace Services.Services
                 await _uow.GetRepository<Product>().Add(productEntity);
                 _uow.Commit();
 
-                return "OK";
+                return productEntity.Id;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                return ex.Message;
+                return 0;
             }
         }
 
