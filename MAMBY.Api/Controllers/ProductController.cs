@@ -32,7 +32,11 @@ namespace MAMBY.Api.Controllers
         public async Task<IActionResult> AddProduct([FromBody] ProductDto product)
         {
             var result = await _productService.AddProduct(product);
-            return Ok(result);
+            if(result == null)
+            {
+                return BadRequest();
+            }
+            return Ok();
         }
 
         [HttpPut("UpdateProduct")]

@@ -27,8 +27,8 @@ namespace Services.Services
         {
             try
             {
-                var productEntity = _mapper.Map<ProductDto>(productDto);
-                await _uow.GetRepository<ProductDto>().Add(productEntity);
+                var productEntity = _mapper.Map<Product>(productDto);
+                await _uow.GetRepository<Product>().Add(productEntity);
                 _uow.Commit();
 
                 return "OK";

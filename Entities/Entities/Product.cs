@@ -18,11 +18,12 @@ namespace Entity.Entities
         public string ContentImage2 { get; set; }
         public string ContentImage3 { get; set; }
         public string ContentImage4 { get; set; }
-        public int Point { get; set; }
+        public int? Point { get; set; }
 
         //Relation
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
-        public List<Command> Commands { get; set; }
+        public Category? Category { get; set; }
+        public List<ProductFeature>? ProductFeatures { get; set; }
+        public List<Command>? Commands { get; set; }
     }
 }

@@ -26,6 +26,7 @@ namespace Services.Mapping
             CreateMap<UpdateUserDto, AppUser>().ReverseMap();
             CreateMap<CategoryDto, Category>().ReverseMap();
             CreateMap<RoleDto, AppRole>().ReverseMap();
+            CreateMap<ProductFeatureDto, ProductFeature>().ReverseMap();
         }
     }
 }
