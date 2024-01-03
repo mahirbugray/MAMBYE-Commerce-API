@@ -17,6 +17,6 @@ namespace Entity.DTOs
         public int ProductId { get; set; }
 
         //Relation
-        public virtual Product Product { get; set; }
+        public virtual Product Products { get; set; }
     }
 }

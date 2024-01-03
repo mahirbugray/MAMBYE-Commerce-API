@@ -1,0 +1,16 @@
+﻿using Entity.DTOs;
+using Entity.IUnitOfWork;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entity.Services
+{
+    public interface IProductFeatureService
+    {
+        Task<string> Add(ProductFeatureDto featureDto);
+        Task<List<ProductFeatureDto>> GetAll(int productId); 
+    }
+}

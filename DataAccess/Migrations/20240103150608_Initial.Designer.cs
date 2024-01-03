@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(MambyContext))]
-    [Migration("20240102213240_Initial")]
+    [Migration("20240103150608_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -173,7 +173,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 2,
                             CategoryName = "Giyim",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7244),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5143),
                             Description = "Erkek - Kadın - Çocuk kıyafet.",
                             IsDeleted = false
                         },
@@ -181,7 +181,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 4,
                             CategoryName = "Elektronik",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7245),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5146),
                             Description = "Teknolojik araçlar.",
                             IsDeleted = false
                         },
@@ -189,7 +189,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 5,
                             CategoryName = "Spor & Outdoor",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7247),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5147),
                             Description = "Spor ve dış giyim malzemeleri.",
                             IsDeleted = false
                         },
@@ -197,7 +197,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 7,
                             CategoryName = "Ayakkabı",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7248),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5148),
                             Description = "Erkek - Kadın - Çocuk ayakkabı.",
                             IsDeleted = false
                         },
@@ -205,7 +205,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 9,
                             CategoryName = "Kozmetik",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7249),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5149),
                             Description = "Makyaj ve kişisel bakım malzemeleri.",
                             IsDeleted = false
                         },
@@ -213,7 +213,7 @@ namespace DataAccess.Migrations
                         {
                             Id = 11,
                             CategoryName = "Ev & Yaşam",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7250),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5150),
                             Description = "Ev ve yaşam için gerekli genel malzemeler.",
                             IsDeleted = false
                         });
@@ -356,7 +356,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/content3.webp",
                             ContentImage3 = "/images/content0.webp",
                             ContentImage4 = "/images/content1.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7047),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4928),
                             Description = "Rahatlık ve moda odaklı tasarlanmış şık erkek ayakkabısı. Bu NIKE Air-Force ayakkabıları, günlük veya spor giyim için mükemmel bir seçenek sunar.",
                             IsDeleted = false,
                             Name = "Air-Force Ayakkabı",
@@ -374,7 +374,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/NikeCortez2.webp",
                             ContentImage3 = "/images/NikeCortez3.webp",
                             ContentImage4 = "/images/NikeCortez4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7051),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4933),
                             Description = "Stil ve işlevselliğe odaklanan NIKE tarafından tasarlanmış şık kadın ayakkabıları. Nike-Cortez koleksiyonu, günlük giyim için moda ve konforu mükemmel bir şekilde birleştiriyor.",
                             IsDeleted = false,
                             Name = "Nike-Cortez Ayakkabı",
@@ -392,7 +392,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/NikeV2KRun3.webp",
                             ContentImage3 = "/images/NikeV2KRun4.webp",
                             ContentImage4 = "/images/NikeV2KRun1.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7053),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4939),
                             Description = "NIKE, aktif bir yaşam tarzı için tasarlanmış kadın ayakkabısı olan V2 Run'u sunar. Bu rahat ve dayanıklı koşu ayakkabıları ile performans ve stilin tadını çıkarın.",
                             IsDeleted = false,
                             Name = "Nike V2 Run Ayakkabı",
@@ -410,7 +410,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/NikeAirMax90Futura3.webp",
                             ContentImage3 = "/images/NikeAirMax90Futura4.webp",
                             ContentImage4 = "/images/NikeAirMax90Futura5.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7056),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4943),
                             Description = " Moda ve sporu bir araya getiren, kadınlar için ideal olan Nike AirMax 90 Futura. Bu ayakkabılar şık tasarımı ve gün boyu konforu ile öne çıkıyor.",
                             IsDeleted = false,
                             Name = "Nike AirMax 90 Futura Ayakkabı",
@@ -428,7 +428,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/NikeCourtVısıonLo3.jpg",
                             ContentImage3 = "/images/NikeCourtVısıonLo4.jpg",
                             ContentImage4 = "/images/NikeCourtVısıonLo5.jpg",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7058),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4948),
                             Description = "Stilin bir dokunuşuyla erkek spor ayakkabıları. Nike Court Vısıon Lo koleksiyonu, spor ve günlük kullanım için performans ile trend tasarımı mükemmel bir şekilde birleştiriyor.",
                             IsDeleted = false,
                             Name = "Nike Court Vısıon Lo Ayakkabı",
@@ -446,7 +446,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/stansmith2.webp",
                             ContentImage3 = "/images/stansmith3.webp",
                             ContentImage4 = "/images/stansmith4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7060),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4950),
                             Description = "Klasik erkek ayakkabılarından olan adidas Stan Smith koleksiyonu, zamansız stili ve konforuyla bilinir. Bu ikonik sneaker'lar ile günlük görünümünüzü yükseltin.",
                             IsDeleted = false,
                             Name = "adidas Stan Smith Ayakkabı",
@@ -464,7 +464,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/adidasniteball2.webp",
                             ContentImage3 = "/images/adidasniteball3.webp",
                             ContentImage4 = "/images/adidasniteball4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7063),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4953),
                             Description = "adidas'ın tasarladığı cinsiyet ayrımı olmayan spor ayakkabıları, Niteball koleksiyonu, çok yönlülük ve performans için tasarlanmıştır. Bu ayakkabılar çeşitli spor ve aktiviteler için uygundur.",
                             IsDeleted = false,
                             Name = "adidas niteball unisex Ayakkabı",
@@ -482,7 +482,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/NewBalance5302.webp",
                             ContentImage3 = "/images/NewBalance5305.webp",
                             ContentImage4 = "/images/NewBalance5304.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7065),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4956),
                             Description = "NewBalance530 erkek ayakkabıları ile stil sahibi bir şekilde doğayı keşfedin. Bu NewBalance sneaker'lar, sert dayanıklılık ve modern tasarımın mükemmel bir kombinasyonunu sunar, aktif yaşam tarzınız için.",
                             IsDeleted = false,
                             Name = "NewBalance530 Ayakkabı",
@@ -500,7 +500,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/ForumLowUnisex2.webp",
                             ContentImage3 = "/images/ForumLowUnisex3.webp",
                             ContentImage4 = "/images/ForumLowUnisex4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7067),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4958),
                             Description = "Adidas Forum Low Ayakkabı, şıklık ve konforu bir araya getiren özel tasarım bir spor ayakkabıdır. Yüksek kaliteli malzemeler ve modern tasarımı ile dikkat çeker. Spor giyim tarzınızı tamamlayan bu ayakkabı, her an her yerde rahatlıkla kullanabilirsiniz.",
                             IsDeleted = false,
                             Name = "Forum Low Ayakkabı",
@@ -518,7 +518,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/YSLLEauDeParfum2.webp",
                             ContentImage3 = "/images/YSLLEauDeParfum3.webp",
                             ContentImage4 = "/images/YSLLEauDeParfum4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7070),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4962),
                             Description = "Zarif ve etkileyici bir kokuya sahiptir. 30 ml boyutu ile her an yanınızda taşıyabileceğiniz şık bir seçenektir.",
                             IsDeleted = false,
                             Name = "Yves Saint Laurent Libre Eau De Parfum 30 ml",
@@ -536,7 +536,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/YSLLHomme2.webp",
                             ContentImage3 = "/images/YSLLHomme3.webp",
                             ContentImage4 = "/images/YSLLHomme4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7072),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4966),
                             Description = "Yves Saint Laurent L'Homme Le Parfum, maskülen ve sofistike bir koku arayanlar için ideal bir seçenektir.",
                             IsDeleted = false,
                             Name = "Yves Saint Laurent L'Homme Le Parfum Edp 100 ml",
@@ -554,7 +554,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/armanicontent2.webp",
                             ContentImage3 = "/images/armanicontent3.webp",
                             ContentImage4 = "/images/armanicontent4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7074),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(4996),
                             Description = "Giorgio Armani, güçlü ve şehvetli bir iz için aromatik ve odunsu notalara sahip erkekler için yeni doldurulabilir parfümü ARMANI CODE PARFUM'u tanıttı.",
                             IsDeleted = false,
                             Name = "Erkek Parfüm",
@@ -572,7 +572,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/YSLMonParis2.webp",
                             ContentImage3 = "/images/YSLMonParis3.webp",
                             ContentImage4 = "/images/YSLMonParis4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7076),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5000),
                             Description = "Yves Saint Laurent Mon Paris Parfum, romantik ve tutkulu bir kadının imzasıdır.",
                             IsDeleted = false,
                             Name = "Yves Saint Laurent Mon Paris Parfum Edp 30 ml",
@@ -590,7 +590,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/Clinique2.webp",
                             ContentImage3 = "/images/Clinique3.webp",
                             ContentImage4 = "/images/Clinique4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7078),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5003),
                             Description = "Özel formülü ile 100 saate kadar etkili nemlendirme sunar. 15 ml boyutu ile seyahatlerinizde yanınızda taşıyabilirsiniz.",
                             IsDeleted = false,
                             Name = "Clinique Moisture Surge 100 Saat Etkili Nemlendirici 15 ml",
@@ -608,7 +608,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/MacRuj2.webp",
                             ContentImage3 = "/images/MacRuj3.webp",
                             ContentImage4 = "/images/MacRuj4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7081),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5007),
                             Description = "M.A.C Velvet Teddy, dudaklara şıklık ve sofistikasyon katan, mat ve uzun ömürlü bir rujdur. Her tonla uyumlu olan bu ruj, günlük makyaj rutininizin vazgeçilmezi olacak.",
                             IsDeleted = false,
                             Name = "Mac Ruj / Lipstick - Velvet Teddy",
@@ -626,7 +626,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/takımcontent2.webp",
                             ContentImage3 = "/images/takımcontent3.webp",
                             ContentImage4 = "/images/takımcontent4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7083),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5011),
                             Description = "Slim Fit Siyah Düz Takim Elbise",
                             IsDeleted = false,
                             Name = "Erkek Takım Elbise",
@@ -644,7 +644,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/ProArt2.jpg",
                             ContentImage3 = "/images/ProArt3.jpg",
                             ContentImage4 = "/images/ProArt4.jpg",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7085),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5014),
                             Description = "ASUS ProArt Display PA279CRV, profesyonel video editörleri için tasarlanan 27 inç 4K HDR bir monitördür. Calman Verified sertifikasına sahip ekran, %99 DCI-P3 geniş renk gamı, %99 Adobe RGB kapsaması ve olağanüstü renk doğruluğu için fabrikada kalibre edilen Delta E < 2 sunar. Ek kolaylıklar sağlamak için dahili USB-C® bağlantı noktası DisplayPort™, süper hızlı veri aktarımları ve tek kablo üzerinden 96-watt güç dağıtımı desteği sunar.",
                             IsDeleted = false,
                             Name = "ASUS ProArt PA279CRV 27″ 5ms 60Hz Gaming Monitör",
@@ -662,7 +662,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/asuscontent2.jpeg",
                             ContentImage3 = "/images/asuscontent3.jpeg",
                             ContentImage4 = "/images/asuscontent4.jpeg",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7088),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5016),
                             Description = "Asus ROG Strix G18 G814JI-N6079 modeli, Intel Core i9 13980HX işlemci, 16GB RAM, 1TB SSD depolama, RTX4070 grafik kartı ve 18 WQXGA 240Hz ekran özellikleri ile yüksek performanslı bir oyuncu bilgisayarıdır. Taşınabilir tasarımı ile oyunculara özgü özellikler sunar.",
                             IsDeleted = false,
                             Name = "Oyuncu Bilgisayarı",
@@ -680,7 +680,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/RTX40802.jpg",
                             ContentImage3 = "/images/RTX40803.jpg",
                             ContentImage4 = "/images/RTX40804.jpg",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7090),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5018),
                             Description = "Asus GeForce RTX 4080 Noctua OC, oyuncular için geliştirilmiş bir ekran kartıdır. Yüksek performans, GDDR6X bellek, DLSS 3 teknolojisi ve 256Bit veri yolu ile oyun deneyiminizi en üst düzeye çıkartır.",
                             IsDeleted = false,
                             Name = "Asus GeForce RTX 4080 Noctua OC 16G GDDR6X 256Bit DX12 DLSS 3 Gaming (Oyuncu) Ekran Kartı",
@@ -698,7 +698,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/iPhone13_2.webp",
                             ContentImage3 = "/images/iPhone13_3.webp",
                             ContentImage4 = "/images/iPhone13_4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7092),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5022),
                             Description = "iPhone 13, A15 Bionic çip ile güçlendirilmiş, çift kamera sistemi, uzun pil ömrü ve 6.1 inç Super Retina XDR ekranıyla dikkat çeken bir akıllı telefondur. Yüksek performansı ve şık tasarımı ile öne çıkar.",
                             IsDeleted = false,
                             Name = "Apple iPhone 13",
@@ -716,7 +716,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/iPhone14Pro_2.webp",
                             ContentImage3 = "/images/iPhone14Pro_3.webp",
                             ContentImage4 = "/images/iPhone14Pro_4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7094),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5026),
                             Description = "iPhone 14 Pro, gelişmiş özellikleri ve kamerasıyla öne çıkan bir akıllı telefondur. Yüksek çözünürlüklü ekranı, güçlü işlemcisi ve 5G desteği ile kullanıcılarına üstün bir deneyim sunar.",
                             IsDeleted = false,
                             Name = "Apple iPhone 14 Pro",
@@ -734,7 +734,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/iPhone15ProMax_2.webp",
                             ContentImage3 = "/images/iPhone15ProMax_3.webp",
                             ContentImage4 = "/images/iPhone15ProMax_4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7096),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5030),
                             Description = "iPhone 15 Pro Max, geleceğin teknolojilerini şimdi sunan bir akıllı telefondur. Gelişmiş kamera sistemleri, büyük ekran, hızlı şarj özellikleri ve yenilikçi tasarımı ile dikkat çeker.",
                             IsDeleted = false,
                             Name = "Apple iPhone 15 Pro Max",
@@ -752,7 +752,7 @@ namespace DataAccess.Migrations
                             ContentImage2 = "/images/gscontent2.webp",
                             ContentImage3 = "/images/gscontent3.webp",
                             ContentImage4 = "/images/gscontent4.webp",
-                            DateTime = new DateTime(2024, 1, 3, 0, 32, 40, 191, DateTimeKind.Local).AddTicks(7098),
+                            DateTime = new DateTime(2024, 1, 3, 18, 6, 8, 175, DateTimeKind.Local).AddTicks(5034),
                             Description = "Nike Galatasaray 2023/2024 Parçalı İç Saha Forma FN0200-836",
                             IsDeleted = false,
                             Name = "Galatasaray 23-24 Sezonu İç Saha Forma",
@@ -987,11 +987,13 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entity.Entities.Command", b =>
                 {
-                    b.HasOne("Entity.Entities.Product", null)
+                    b.HasOne("Entity.Entities.Product", "Products")
                         .WithMany("Commands")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Entity.Entities.Product", b =>
@@ -1008,7 +1010,7 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entity.Entities.ProductFeature", b =>
                 {
                     b.HasOne("Entity.Entities.Product", "Product")
-                        .WithMany()
+                        .WithMany("ProductFeatures")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1094,6 +1096,8 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entity.Entities.Product", b =>
                 {
                     b.Navigation("Commands");
+
+                    b.Navigation("ProductFeatures");
                 });
 
             modelBuilder.Entity("Entity.Entities.Sale", b =>

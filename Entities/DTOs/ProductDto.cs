@@ -24,7 +24,8 @@ namespace Entity.DTOs
         public string ContentImage4 { get; set; }
         public int Point { get; set; }
 		public int CategoryId { get; set; }
-		public CategoryDto Category { get; set; }
-        public List<CommandDto> Commands { get; set; }
+		public CategoryDto? Category { get; set; }
+        public List<CommandDto>? Commands { get; set; }
+        public List<ProductFeatureDto>? ProductFeatures { get; set; }
 	}
 }
