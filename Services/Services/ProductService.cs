@@ -135,7 +135,7 @@ namespace Services.Services
 
         public async Task<ProductDto> GetProductById(int productId)
         {
-            try
+            try 
             {
                 var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category, x => x.Commands, x=> x.ProductFeatures);
                 var mappedList = _mapper.Map<ProductDto>(product);
