@@ -137,7 +137,7 @@ namespace Services.Services
         {
             try
             {
-                var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category, x => x.Commands);
+                var product = await _uow.GetRepository<Product>().Get(x => x.Id == productId, null, x => x.Category, x => x.Commands, x=> x.ProductFeatures);
                 var mappedList = _mapper.Map<ProductDto>(product);
                 if (mappedList.Commands.Count() > 0)
                 {
