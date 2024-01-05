@@ -24,11 +24,14 @@ namespace Services.Services
             _mapper = mapper;
         }
 
-        public async Task<string> Add(ProductFeatureDto featureDto)
+        public async Task<string> Add(List<ProductFeatureDto> featureDto)
         {
             try
             {
-                await _uow.GetRepository<ProductFeature>().Add(_mapper.Map<ProductFeature>(featureDto));
+                foreach (var feature in featureDto)
+                {
+                    await _uow.GetRepository<ProductFeature>().Add(_mapper.Map<ProductFeature>(feature));
+                }
                 await _uow.CommitAsync();
                 return "OK";
             }
@@ -42,7 +45,7 @@ namespace Services.Services
         {
             try
             {
-                var list = await _uow.GetRepository<ProductFeature>().GetAll(x => x.Product.CategoryId == categoryId, null, x => x.Product);
+                var list = await _uow.GetRepository<ProductFeature>().GetAll(x => x.Products.CategoryId == categoryId, null, x => x.Products);
                 list.Where(x => x.ProductId == list.Min(x => x.ProductId));
                 return _mapper.Map<List<ProductFeatureDto>>(list);
             }

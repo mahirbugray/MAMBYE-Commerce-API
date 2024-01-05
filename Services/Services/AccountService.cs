@@ -40,7 +40,7 @@ namespace Services.Services
                 if (result.Succeeded)
                 {
                     UserDto userDto = await _userService.GetByIdUser(user.Id);
-                    userDto.AccessToken = _authService.GenerateToken(user.Id.ToString());
+                    userDto.AccessToken = _authService.GenerateToken(user.Id.ToString(), await _userManager.GetRolesAsync(user));
                     return userDto;
                 }
             }

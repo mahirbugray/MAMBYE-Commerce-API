@@ -1,5 +1,6 @@
 ﻿using Entity.DTOs;
 using Entity.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,7 +28,8 @@ namespace MAMBY.Api.Controllers
             return Ok(productFeature);
         }
         [HttpPost("AddProductFeature")]
-        public async Task<IActionResult> AddProductFeature([FromBody] ProductFeatureDto featureDto)
+        [Authorize(Roles ="Admin")]
+        public async Task<IActionResult> AddProductFeature([FromBody] List<ProductFeatureDto> featureDto)
         {
             var message = await _productFeatureService.Add(featureDto);
             if (message == null)

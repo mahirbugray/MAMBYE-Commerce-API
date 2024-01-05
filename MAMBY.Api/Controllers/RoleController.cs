@@ -1,11 +1,13 @@
 ﻿using Entity.DTOs;
 using Entity.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Services;
 
 namespace MAMBY.Api.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class RoleController : ControllerBase
