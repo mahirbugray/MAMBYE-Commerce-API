@@ -8,6 +8,7 @@ using System.Security.Claims;
 
 namespace MAMBY.Api.Controllers
 {
+    [Authorize(Roles ="Kullanıcı,Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class SaleController : ControllerBase
