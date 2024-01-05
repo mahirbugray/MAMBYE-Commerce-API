@@ -43,7 +43,7 @@ namespace Services.Extensions
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
 
-                    ValidIssuer = jwtDefaults["ValidIssuer"],
+                    ValidIssuer = jwtDefaults["ValidIssur"],
                     ValidAudience = jwtDefaults["ValidAudience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
                     //ClockSkew = TimeSpan.Zero
