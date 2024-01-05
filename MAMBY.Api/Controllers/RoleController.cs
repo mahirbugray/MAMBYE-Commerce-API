@@ -7,7 +7,6 @@ using Services.Services;
 
 namespace MAMBY.Api.Controllers
 {
-    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class RoleController : ControllerBase
