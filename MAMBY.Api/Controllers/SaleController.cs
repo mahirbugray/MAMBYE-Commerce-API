@@ -57,10 +57,9 @@ namespace MAMBY.Api.Controllers
             }
         }
         [HttpPost("CreateSale")]
-        [Authorize]
         public async Task<IActionResult> CreateSale([FromBody]PaymentPostDto model)
         {
-            var userIdClaim = User.FindFirst(ClaimTypes.UserData);
+            var userIdClaim = User.FindFirst(x => x.Type == ClaimTypes.UserData);
             if (userIdClaim != null)
             {
                 int userId = Convert.ToInt32(userIdClaim.Value);
