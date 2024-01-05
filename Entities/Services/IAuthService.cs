@@ -8,6 +8,6 @@ namespace Entity.Services
 {
     public interface IAuthService
     {
-        string GenerateToken(string id);
+        string GenerateToken(string id, IList<string> roles);
     }
 }

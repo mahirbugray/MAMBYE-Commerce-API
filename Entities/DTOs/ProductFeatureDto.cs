@@ -12,11 +12,11 @@ namespace Entity.DTOs
         public int Id { get; set; }
         public DateTime DateTime { get; set; } = DateTime.Now;
         public bool IsDeleted { get; set; }
-        public string Key { get; set; }
+        public string? Key { get; set; }
         public string value { get; set; }
         public int ProductId { get; set; }
 
         //Relation
-        public virtual Product Products { get; set; }
+        public ProductDto? Products { get; set; }
     }
 }

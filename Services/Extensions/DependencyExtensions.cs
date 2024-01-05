@@ -27,23 +27,28 @@ namespace Services.Extensions
         {
             var jwtDefaults = configuration.GetSection("JwtDefaults");
             var secretKey = jwtDefaults["secretKey"];
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(opt =>
             {
                 opt.RequireHttpsMetadata = false;
                 opt.TokenValidationParameters = new TokenValidationParameters
                 {
-                    ValidateIssuer = true,   //token üret
-                    ValidateAudience = true,  //token denetle
-                    ValidateLifetime = true,   //token ömür kontrolleri
-                    ValidateIssuerSigningKey = true, //bizim verdiğimiz secret keyi kullan
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
 
-                    ValidIssuer = jwtDefaults["ValidIssur"], //appsetting deki değeri alır
-                    ValidAudience = jwtDefaults["ValidAudience"], //appsettingden değeri alır
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)), //bizim verdiğimiz keyi encode eder
-                    //ClockSkew = TimeSpan.Zero //isteyen cihazla aradaki saat farkını sıfırlar
+                    ValidIssuer = jwtDefaults["ValidIssuer"],
+                    ValidAudience = jwtDefaults["ValidAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+                    //ClockSkew = TimeSpan.Zero
                 };
             });
-
             services.AddIdentity<AppUser, AppRole>(options =>
             {
                 options.Password.RequireNonAlphanumeric = false;  //karakter istemesin
@@ -65,6 +70,9 @@ namespace Services.Extensions
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
             });
+
+            services.AddAuthorization();
+
 
             services.ConfigureApplicationCookie(op =>
             {

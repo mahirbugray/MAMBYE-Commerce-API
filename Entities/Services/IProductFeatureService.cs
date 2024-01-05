@@ -10,7 +10,7 @@ namespace Entity.Services
 {
     public interface IProductFeatureService
     {
-        Task<string> Add(ProductFeatureDto featureDto);
+        Task<string> Add(List<ProductFeatureDto> featureDto);
         Task<List<ProductFeatureDto>> GetAllProductFeature(int productId); 
     }
 }

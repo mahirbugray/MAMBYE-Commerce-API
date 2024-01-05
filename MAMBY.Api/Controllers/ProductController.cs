@@ -1,5 +1,6 @@
 ﻿using Entity.DTOs;
 using Entity.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Services.Services;
@@ -29,6 +30,7 @@ namespace MAMBY.Api.Controllers
             return Ok(product);
         }
         [HttpPost("AddProduct")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddProduct([FromBody] ProductDto product)
         {
             var result = await _productService.AddProduct(product);
@@ -40,6 +42,7 @@ namespace MAMBY.Api.Controllers
         }
 
         [HttpPut("UpdateProduct")]
+        [Authorize(Roles = "Admin")]
         public IActionResult UpdateProduct([FromBody] ProductDto productDto)
         {
             var product = _productService.UpdateProduct(productDto);
@@ -51,6 +54,7 @@ namespace MAMBY.Api.Controllers
             return Ok(product);
         }
         [HttpDelete("DeleteProduct")]
+        [Authorize(Roles = "Admin")]
         public IActionResult DeleteProduct(int id)
         {
             var msg = _productService.DeleteProduct(id);

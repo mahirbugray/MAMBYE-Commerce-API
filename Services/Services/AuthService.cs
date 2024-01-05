@@ -21,7 +21,7 @@ namespace Services.Services
             _configuration = configuration;
         }
         LoginDto login;
-        public string GenerateToken(string id)
+        public string GenerateToken(string id, IList<string> roles)
         {
             var jwtDefaults = _configuration.GetSection("JwtDefaults");  //appsetting deki jwt verilerini almak için
             var secretKey = jwtDefaults["secretKey"]; //içinden secretKey i almak için
@@ -35,6 +35,10 @@ namespace Services.Services
                 new Claim(ClaimTypes.UserData,id),   //talepte bulunan kullanıcının hangi rollere sahip olduğu bilgisi alınır admin yerine eklenerek liste oluşturulur
                 new Claim("sub", id)
             };
+            foreach (var item in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, item));
+            }
 
             JwtSecurityToken token = new JwtSecurityToken(issuer: jwtDefaults["ValidIssur"], audience: jwtDefaults["ValidAudience"], claims: claims, notBefore: DateTime.Now, expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtDefaults["expires"])), signingCredentials: signingCredentials);
 
