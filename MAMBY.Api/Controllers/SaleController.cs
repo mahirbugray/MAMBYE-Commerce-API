@@ -56,7 +56,7 @@ namespace MAMBY.Api.Controllers
 
                return BadRequest(ex.Message);
             }
-        }
+        }   
         [HttpPost("CreateSale")]
         public async Task<IActionResult> CreateSale([FromBody]PaymentPostDto model)
         {
