@@ -73,22 +73,15 @@ namespace MAMBY.Api.Controllers
             }
             return BadRequest();
         }
-        //[HttpGet]
-        //public async Task<IActionResult> ReceiptSale(int id)
-        //{
-        //    var userIdClaim = User.FindFirst(ClaimTypes.UserData);
-        //    if (userIdClaim == null)
-        //    {
-        //        return BadRequest("");
-        //    }
-        //    int userId = Convert.ToInt32(userIdClaim.Value);
-
-        //    var lastSale = await _saleService.GetById(id);
-        //    if (lastSale != null)
-        //    {
-        //        return Ok(lastSale);
-        //    }
-        //    return NotFound();
-        //}
+        [HttpGet("OrderProfile/{id}")]
+        public async Task<IActionResult> OrderProfile(int id)
+        {
+            var sale = await _saleService.GetByUserId(id);
+            if (sale == null)
+            {
+                return NotFound();
+            }
+            return Ok(sale);
+        }
     }
 }
