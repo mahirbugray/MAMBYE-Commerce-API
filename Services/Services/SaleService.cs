@@ -86,9 +86,22 @@ namespace Services.Services
             }
         }
 
-        public Task<SaleDto> GetByUserId(int userId)
+        public async Task<List<SaleDto>> GetByUserId(int userId)
         {
-            throw new NotImplementedException();
+            // Kullanıcının siparişlerini al
+            var sales = await _unitOfWork.GetRepository<Sale>().GetAll(s => s.UserId == userId);
+
+            // Sale nesnesini SaleDto'ya dönüştür
+            var saleDtos = _mapper.Map<List<SaleDto>>(sales);
+
+            // Her bir sipariş için detayları doldur
+            foreach (var saleDto in saleDtos)
+            {
+                var saleDetails = await _unitOfWork.GetRepository<SaleDetail>().GetAll(d => d.SaleId == saleDto.Id);
+                saleDto.SaleDetails = _mapper.Map<List<SaleDetailDto>>(saleDetails);
+            }
+
+            return saleDtos;
         }
     }
 }
